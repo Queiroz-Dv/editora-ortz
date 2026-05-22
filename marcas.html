@@ -4,6 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trabalhos para Marcas - Editora Ortz</title>
+
+    <!-- PWA: Manifest & Tema -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#8B7355">
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- PWA: iOS (Apple) -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Editora Ortz">
+    <link rel="apple-touch-icon" href="public/icons/icon-192x192.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="public/icons/icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="public/icons/icon-144x144.png">
+
+    <!-- SEO & Open Graph -->
+    <meta name="description" content="Projetos editoriais da Editora Ortz para marcas: narrativas autênticas e branded content de alto impacto.">
+    <meta property="og:title" content="Trabalhos para Marcas - Editora Ortz">
+    <meta property="og:description" content="Projetos editoriais que elevam marcas com narrativas autênticas.">
+    <meta property="og:type" content="website">
+
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -224,6 +244,17 @@
             const coverUrl = element.getAttribute('data-cover');
             CoverModal.open(coverUrl);
         }
+    </script>
+
+    <!-- Registro do Service Worker (PWA) -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then((reg) => console.log('[PWA] Service Worker registrado:', reg.scope))
+            .catch((err) => console.warn('[PWA] Falha no registro do SW:', err));
+        });
+      }
     </script>
 </body>
 </html>
