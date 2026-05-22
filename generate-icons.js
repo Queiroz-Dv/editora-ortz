@@ -1,4 +1,3 @@
-// generate-icons.js
 // Gera os ícones PNG necessários para o PWA a partir da logo existente
 // Execute com: node generate-icons.js
 // Requer: npm install sharp
