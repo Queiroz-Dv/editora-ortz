@@ -1,0 +1,237 @@
+/* ===========================================
+ * ESTILOS RESPONSIVOS (MOBILE)
+ * ===========================================
+ */
+
+@media (max-width: 1024px) {
+  .nav-menu {
+    gap: 1.5rem;
+  }
+  .logo-text {
+    font-size: 2.2rem;
+  }
+}
+
+/* === TABLET E MOBILE === */
+@media (max-width: 900px) {
+  .nav-menu {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 110px; /* Altura da navbar */
+    left: 0;
+    width: 100%;
+    background-color: var(--color-bg);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    
+    height: calc(100vh - 110px);
+    padding: 3rem 2rem;
+    
+    transform: translateX(100%);
+    transition: var(--transition);
+    opacity: 0.9;
+  }
+
+  .nav-menu.active {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  .nav-menu a {
+    font-size: 1.5rem;
+    padding: 1rem 0;
+  }
+  
+  .nav-menu a::before {
+    height: 3px;
+  }
+
+  .theme-toggle {
+    margin-left: auto; 
+  }
+
+  .menu-toggle {
+    display: flex;
+    z-index: 1001; 
+    margin-left: 1rem;
+  }
+  
+  .menu-toggle span {
+     background-color: var(--color-text);
+  }
+
+  /* Animação do Hamburger */
+  .menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  /* Ajustes de Grid e Seções */
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .qrz-content {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .contact-card {
+     padding: 2.5rem;
+  }
+
+  .logo-display {
+    padding: 1rem;
+  }
+}
+
+/* === APENAS MOBILE === */
+@media (max-width: 600px) {
+  .container,
+  .container-wide {
+    padding: 0 1rem;
+  }
+
+  .nav-container {
+    padding: 0 1rem;
+  }
+  
+  /* === CORREÇÃO DA LOGO === */
+  .logo-text {
+    /* display: none; */ /* REMOVIDO */
+    font-size: 1.2rem; /* AJUSTADO: Texto visível e menor */
+  }
+  /* === FIM DA CORREÇÃO === */
+
+
+  .logo-icon {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .nav-menu {
+     top: 100px; 
+     height: calc(100vh - 100px);
+  }
+
+  section {
+    padding: 4rem 0;
+  }
+
+  .hero-title {
+    font-size: 2.2rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .btn {
+    padding: 0.8rem 1.8rem;
+    font-size: 0.9rem;
+  }
+
+  .section-title {
+    font-size: 2.2rem;
+  }
+
+  .section-description {
+    font-size: 1rem;
+  }
+
+  /* Timeline */
+  .timeline-line {
+    left: 20px;
+  }
+  .timeline-item,
+  .timeline-item:nth-child(even) {
+    flex-direction: row;
+    padding-left: 50px; 
+  }
+  .timeline-dot {
+    left: 10px; 
+    width: 20px;
+    height: 20px;
+  }
+  .timeline-content {
+    width: 100%;
+    text-align: left;
+    margin-left: 0;
+    padding: 1.5rem;
+  }
+  .timeline-item:nth-child(even) .timeline-content {
+    text-align: left;
+  }
+  .timeline-title {
+    font-size: 1.5rem;
+  }
+
+  .work-buttons {
+    flex-direction: column;
+    align-items: center; 
+  }
+  
+  .work-btn {
+    width: auto; 
+    justify-content: center; 
+  }
+
+  .work-preview-container {
+     display: none; 
+  }
+  
+  .contact-card {
+     padding: 2rem 1.5rem;
+  }
+
+  .contact-title {
+    font-size: 2rem;
+  }
+  
+  .contact-description,
+  .contact-value {
+    font-size: 1rem;
+  }
+  
+  /* === FOOTER MOBILE ATUALIZADO === */
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    text-align: left; 
+  }
+
+  .footer-brand {
+    align-items: flex-start; 
+  }
+  
+  .footer-logo-container {
+    justify-content: flex-start; 
+  }
+
+  .footer-links {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .footer-nav-links {
+    display: none;
+  }
+
+  .footer-conglomerado-links .footer-heading {
+    display: none;
+  }
+
+  .footer-conglomerado-links .footer-menu {
+    text-align: left;
+  }
+  /* === FIM DA ATUALIZAÇÃO DO FOOTER === */
+}

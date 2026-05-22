@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volumes Publicados - Editora Ortz</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="mobile.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo-link">
+                <div class="nav-logo">
+                    <img src="public/images/design-mode/Logo-B.png" alt="Editora Ortz" class="logo-icon logo-light">
+                    <img src="public/images/design-mode/Logo-W.png" alt="Editora Ortz" class="logo-icon logo-dark">
+                    <span class="logo-text">EDITORA ORTZ</span>
+                </div>
+            </a>
+
+            <ul class="nav-menu">
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="index.html#servicos">Serviços</a></li>
+                <li><a href="index.html#volumes" class="nav-active">Volumes</a></li>
+                <li><a href="index.html#marcas">Marcas</a></li>
+                <li><a href="index.html#contato">Contato</a></li>
+            </ul>
+
+            <button class="theme-toggle" aria-label="Toggle dark mode">
+                <svg class="sun-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="5"/>
+                    <line x1="12" y1="1" x2="12" y2="3"/>
+                    <line x1="12" y1="21" x2="12" y2="23"/>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                    <line x1="1" y1="12" x2="3" y2="12"/>
+                    <line x1="21" y1="12" x2="23" y2="12"/>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                </svg>
+                <svg class="moon-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+            </button>
+
+            <button class="menu-toggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <section class="volumes-page">
+        <div class="container">
+            <div class="page-header">
+                <a href="index.html#volumes" class="back-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 12H5M12 19l-7-7 7-7"/>
+                    </svg>
+                    Voltar
+                </a>
+                <h1 class="page-title">Volumes Publicados</h1>
+                <p class="page-description">Nossa coleção de livros que une natureza, negócios e tecnologia.</p>
+            </div>
+            
+            <div class="work-grid">
+                <div class="work-item" onclick="openCoverModal(this)" data-cover="public/images/design-mode/2022-EscalandoSeuNegocio.png">
+                    <div class="work-image">
+                        <img src="public/images/design-mode/2022-EscalandoSeuNegocio.png" alt="Escalando Seu Negócio - 2022">
+                    </div>
+                    <div class="work-info">
+                        <span class="work-year">2022</span>
+                        <h4 class="work-title">Escalando Seu Negócio</h4>
+                        <p class="work-description">Forme times prontos para crescer com tendências e insights de especialistas.</p>
+                    </div>
+                </div>
+                <div class="work-item" onclick="openCoverModal(this)" data-cover="public/images/design-mode/2023-ArquiteturaDaInovacao.png">
+                    <div class="work-image">
+                        <img src="public/images/design-mode/2023-ArquiteturaDaInovacao.png" alt="Arquitetura da Inovação - 2023">
+                    </div>
+                    <div class="work-info">
+                        <span class="work-year">2023</span>
+                        <h4 class="work-title">Arquitetura da Inovação</h4>
+                        <p class="work-description">Planeje sua marca para negócios sustentáveis com ferramentas práticas.</p>
+                    </div>
+                </div>
+                <div class="work-item" onclick="openCoverModal(this)" data-cover="public/images/design-mode/2024-RefugioCorporativo.png">
+                    <div class="work-image">
+                        <img src="public/images/design-mode/2024-RefugioCorporativo.png" alt="Refúgio Corporativo - 2024">
+                    </div>
+                    <div class="work-info">
+                        <span class="work-year">2024</span>
+                        <h4 class="work-title">Refúgio Corporativo</h4>
+                        <p class="work-description">Em busca do equilíbrio através da simplicidade no ambiente de trabalho.</p>
+                    </div>
+                </div>
+                <div class="work-item" onclick="openCoverModal(this)" data-cover="public/images/design-mode/2025-CiclosDeCrescimento.png">
+                    <div class="work-image">
+                        <img src="public/images/design-mode/2025-CiclosDeCrescimento.png" alt="Ciclos de Crescimento - 2025">
+                    </div>
+                    <div class="work-info">
+                        <span class="work-year">2025</span>
+                        <h4 class="work-title">Ciclos de Crescimento</h4>
+                        <p class="work-description">Guia mensal de inovação com ferramentas para marcas orgânicas.</p>
+                    </div>
+                </div>
+                <div class="work-item" onclick="openCoverModal(this)" data-cover="public/images/design-mode/2025-LiderEmRisco.png">
+                    <div class="work-image">
+                        <img src="public/images/design-mode/2025-LiderEmRisco.png" alt="O Líder em Risco - 2025">
+                    </div>
+                    <div class="work-info">
+                        <span class="work-year">2025</span>
+                        <h4 class="work-title">O Líder em Risco</h4>
+                        <p class="work-description">Para quem lidera no desconhecido com soluções práticas e equilíbrio.</p>
+                    </div>
+                </div>
+                <div class="work-item" onclick="openCoverModal(this)" data-cover="public/images/design-mode/2025-CaminhosSustentaveis.png">
+                    <div class="work-image">
+                        <img src="public/images/design-mode/2025-CaminhosSustentaveis.png" alt="Caminhos Sustentáveis - 2025">
+                    </div>
+                    <div class="work-info">
+                        <span class="work-year">2025</span>
+                        <h4 class="work-title">Caminhos Sustentáveis</h4>
+                        <p class="work-description">Guia de jornada verde: mapear, manter consistência e observar o mercado.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal" id="coverModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Fechar">&times;</button>
+            <img src="/placeholder.svg" alt="Capa" class="modal-image">
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo-container">
+                        <img src="public/images/design-mode/Logo-W.png" alt="Editora Ortz" class="footer-logo-icon">
+                        <span class="footer-logo-text">Editora Ortz</span>
+                    </div>
+                    <p class="footer-tagline">Onde a essência natural encontra a excelência editorial</p>
+                </div>
+                <div class="footer-links">
+                    <!-- Coluna de Navegação com nova classe -->
+                    <div class="footer-column footer-nav-links">
+                        <h4 class="footer-heading">Navegação</h4>
+                        <ul class="footer-menu">
+                            <li><a href="sobre.html">Sobre</a></li>
+                            <li><a href="index.html#volumes">Volumes</a></li>
+                            <li><a href="index.html#marcas">Marcas</a></li>
+                            <li><a href="index.html#contato">Contato</a></li>
+                        </ul>
+                    </div>
+                    <!-- Coluna do Conglomerado com nova classe e links atualizados -->
+                    <div class="footer-column footer-conglomerado-links">
+                        <h4 class="footer-heading">Conglomerado</h4>
+                        <ul class="footer-menu">
+                            <li><a href="#">QRZ Group</a></li>
+                            <li><a href="index.html#volumes">Volumes</a></li>
+                            <li><a href="index.html#servicos">Serviços</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">&copy; 2025 Editora Ortz. Parte do Conglomerado QRZ desde 1995. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Script do modal local (necessário para esta página)
+        const CoverModal = {
+            modal: null,
+            modalImage: null,
+            modalClose: null,
+            modalOverlay: null,
+            init() {
+                this.modal = document.getElementById('coverModal');
+                if (!this.modal) return;
+                this.modalImage = this.modal.querySelector('.modal-image');
+                this.modalClose = this.modal.querySelector('.modal-close');
+                this.modalOverlay = this.modal.querySelector('.modal-overlay');
+                this.attachEventListeners();
+            },
+            open(coverUrl) {
+                if (!this.modal || !this.modalImage) return;
+                this.modalImage.src = coverUrl;
+                this.modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            },
+            close() {
+                if (!this.modal) return;
+                this.modal.classList.remove('active');
+                document.body.style.overflow = '';
+            },
+            attachEventListeners() {
+                this.modalClose?.addEventListener('click', () => this.close());
+                this.modalOverlay?.addEventListener('click', () => this.close());
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && this.modal?.classList.contains('active')) {
+                        this.close();
+                    }
+                });
+            }
+        };
+        
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => CoverModal.init());
+        } else {
+            CoverModal.init();
+        }
+
+        function openCoverModal(element) {
+            const coverUrl = element.getAttribute('data-cover');
+            CoverModal.open(coverUrl);
+        }
+    </script>
+</body>
+</html>

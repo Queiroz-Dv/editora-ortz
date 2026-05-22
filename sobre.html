@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nós - Editora Ortz</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="mobile.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo-link">
+                <div class="nav-logo">
+                    <img src="public/images/design-mode/Logo-B.png" alt="Editora Ortz" class="logo-icon logo-light">
+                    <img src="public/images/design-mode/Logo-W.png" alt="Editora Ortz" class="logo-icon logo-dark">
+                    <span class="logo-text">EDITORA ORTZ</span>
+                </div>
+            </a>
+
+            <ul class="nav-menu">
+                <li><a href="sobre.html" class="nav-active">Sobre</a></li>
+                <li><a href="index.html#servicos">Serviços</a></li>
+                <li><a href="index.html#volumes">Volumes</a></li>
+                <li><a href="index.html#marcas">Marcas</a></li>
+                <li><a href="index.html#contato">Contato</a></li>              
+            </ul>
+
+            <button class="theme-toggle" aria-label="Toggle dark mode">
+                <svg class="sun-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="5"/>
+                    <line x1="12" y1="1" x2="12" y2="3"/>
+                    <line x1="12" y1="21" x2="12" y2="23"/>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                    <line x1="1" y1="12" x2="3" y2="12"/>
+                    <line x1="21" y1="12" x2="23" y2="12"/>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                </svg>
+                <svg class="moon-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+            </button>
+
+            <button class="menu-toggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+    
+    <section class="page-simple-header">
+        <div class="container">
+            <h1 class="page-title">Sobre a Editora Ortz</h1>
+            <p class="page-description">Nossa essência, valores e a jornada que nos trouxe até aqui.</p>
+        </div>
+    </section>
+
+    <section class="values" id="sobre">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Nossa Essência</span>
+                <h2 class="section-title">Valores & Missão</h2>
+            </div>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                            <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <h3 class="value-title">Cuidado com a Natureza</h3>
+                    <p class="value-description">Valorizamos o respeito profundo pela natureza, incorporando sua essência em cada projeto editorial que desenvolvemos.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 6v6l4 2"/>
+                        </svg>
+                    </div>
+                    <h3 class="value-title">Inovação Tecnológica</h3>
+                    <p class="value-description">Abraçamos a tecnologia como ferramenta de transformação, criando pontes entre o natural e o digital.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <h3 class="value-title">Impacto Humano</h3>
+                    <p class="value-description">Expressamos narrativas do cotidiano que refletem o impacto real das empresas na vida dos colaboradores.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                        </svg>
+                    </div>
+                    <h3 class="value-title">Autenticidade & Ruptura</h3>
+                    <p class="value-description">Buscamos a autenticidade em cada projeto, rompendo com padrões convencionais para criar algo verdadeiramente único.</p>
+                </div>
+            </div>
+            <div class="mission-statement">
+                <blockquote class="mission-quote">
+                    "Nossa missão é transformar a observação da natureza e da vida cotidiana em narrativas editoriais que inspiram e conectam empreendedores ao essencial, unindo o orgânico ao tecnológico em uma harmonia sofisticada."
+                </blockquote>
+            </div>
+        </div>
+    </section>
+
+    <section class="timeline" id="historia">
+        <div class="container">
+            <div class="section-header centered">
+                <span class="section-label">Nossa Jornada</span>
+                <h2 class="section-title">História da Marca</h2>
+                <p class="section-description">Nossa jornada de crescimento no mercado editorial.</p>
+            </div>
+            <div class="timeline-container">
+                <div class="timeline-line"></div>
+                <div class="timeline-item" data-year="2021">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">2021</span>
+                        <h3 class="timeline-title">Fundação</h3>
+                        <p class="timeline-description">Nascemos com a missão de unir natureza e negócios através de conteúdo editorial de excelência.</p>
+                    </div>
+                </div>
+                <div class="timeline-item" data-year="2022">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">2022</span>
+                        <h3 class="timeline-title">Rebranding</h3>
+                        <p class="timeline-description">Reformulação da identidade visual e expansão como pioneiros em TI para o interior brasileiro.</p>
+                    </div>
+                </div>
+                <div class="timeline-item" data-year="2023">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">2023</span>
+                        <h3 class="timeline-title">Marcas Pessoais</h3>
+                        <p class="timeline-description">Incorporação de marketing editorial voltado para marcas pessoais.</p>
+                    </div>
+                </div>
+                <div class="timeline-item" data-year="2024">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">2024</span>
+                        <h3 class="timeline-title">Expansão de Negócios</h3>
+                        <p class="timeline-description">Abertura para negócios paralelos além das produções editoriais.</p>
+                    </div>
+                </div>
+                <div class="timeline-item" data-year="2025">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">2025</span>
+                        <h3 class="timeline-title">Conglomerado QRZ</h3>
+                        <p class="timeline-description">Integração ao conglomerado QRZ, consolidando nossa posição editorial.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="qrz-connection">
+        <div class="container">
+            <div class="qrz-content">
+                <div class="qrz-logo-container">
+                    <img src="public/images/design-mode/QRZ_Logo_c.png" alt="QRZ Conglomerado" class="qrz-logo">
+                </div>
+                <div class="qrz-text">
+                    <h2 class="qrz-title">Parte do Conglomerado QRZ</h2>
+                    <p class="qrz-description">A Editora Ortz cria os conteúdos que unem negócios e natureza dentro do ecossistema QRZ. Desde 1995, o grupo QRZ é sinônimo de excelência e inovação, e nossa editora carrega esse legado.</p>
+                    <p class="qrz-description">Juntos, criamos um universo editorial que valoriza a autenticidade, a sofisticação e a conexão entre diferentes dimensões da experiência humana e empresarial.</p>
+                </div>
+                <div class="qrz-logo-container">
+                     <img src="public/images/design-mode/EditoraOrtz-B.png" alt="Editora Ortz" class="footer-logo-icon logo-light">
+                     <img src="public/images/design-mode/EditoraOrtz-W.png" alt="Editora Ortz" class="footer-logo-icon logo-dark">    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo-container">
+                        <img src="public/images/design-mode/Logo-W.png" alt="Editora Ortz" class="footer-logo-icon">
+                        <span class="footer-logo-text">Editora Ortz</span>
+                    </div>
+                    <p class="footer-tagline">Onde a essência natural encontra a excelência editorial</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column footer-nav-links">
+                        <h4 class="footer-heading">Navegação</h4>
+                        <ul class="footer-menu">
+                            <li><a href="sobre.html">Sobre</a></li>
+                            <li><a href="index.html#volumes">Volumes</a></li>
+                            <li><a href="index.html#marcas">Marcas</a></li>
+                            <li><a href="index.html#contato">Contato</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column footer-conglomerado-links">
+                        <h4 class="footer-heading">Conglomerado</h4>
+                        <ul class="footer-menu">
+                            <li><a href="#">QRZ Group</a></li>
+                            <li><a href="index.html#volumes">Volumes</a></li>
+                            <li><a href="index.html#servicos">Serviços</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">&copy; 2025 Editora Ortz. Parte do Conglomerado QRZ desde 1995. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
