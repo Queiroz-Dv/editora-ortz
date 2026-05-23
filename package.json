@@ -1,4 +1,7 @@
 {
+  "name": "editora-ortz",
+  "version": "1.0.0",
+  "private": true,
   "devDependencies": {
     "sharp": "^0.34.5"
   }

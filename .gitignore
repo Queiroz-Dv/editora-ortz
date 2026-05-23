@@ -1,10 +1,14 @@
-# v0 runtime files
-__v0_runtime_loader.js
-__v0_devtools.tsx
-__v0_jsx-dev-runtime.ts
+# Dependências
+node_modules/
 
-# Common ignores
-node_modules
-.next/
+# Vercel
+.vercel/
 .env*.local
+.env*
+
+# Ferramentas de desenvolvimento (não precisam ir para produção)
+generate-icons.js
+
+# Sistema
 .DS_Store
+Thumbs.db
