@@ -91,6 +91,17 @@
   height: 32px;
 }
 
+.gm-icon-orbit {
+  animation: gmIconLift 4.8s ease-in-out infinite;
+  overflow: visible;
+}
+
+.gm-icon-orbit path:first-child {
+  stroke-dasharray: 76;
+  stroke-dashoffset: 76;
+  animation: gmIconDraw 4.8s ease-in-out infinite;
+}
+
 .gm-label {
   display: inline-block;
   font-size: 0.82rem;
@@ -155,21 +166,61 @@
 }
 
 .gm-cert-icon svg {
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
+}
+
+.gm-cert-svg {
+  overflow: visible;
+}
+
+.gm-cert-draw {
+  stroke-dasharray: 62;
+  stroke-dashoffset: 62;
+  animation: gmCertDraw 4.8s ease-in-out infinite;
+}
+
+.gm-cert-draw--delay-1 {
+  animation-delay: 0.18s;
+}
+
+.gm-cert-draw--delay-2 {
+  animation-delay: 0.36s;
+}
+
+.gm-cert-pulse-check {
+  stroke-dasharray: 18;
+  stroke-dashoffset: 18;
+  animation: gmCheckPulse 4.8s ease-in-out infinite;
+}
+
+.gm-cert-orbit {
+  stroke-dasharray: 64;
+  stroke-dashoffset: 64;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: gmOrbitDraw 4.8s ease-in-out infinite;
+}
+
+.gm-cert-hand {
+  stroke-dasharray: 18;
+  stroke-dashoffset: 18;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: gmHandTick 4.8s ease-in-out infinite;
 }
 
 .gm-cert-name {
   font-family: var(--font-serif);
-  font-size: 1.15rem;
+  font-size: 1.24rem;
   color: rgba(255, 255, 255, 0.88);
   font-weight: 500;
 }
 
 .gm-cert-desc {
-  font-size: 0.88rem;
+  font-size: 0.98rem;
   color: rgba(255, 255, 255, 0.45);
-  line-height: 1.6;
+  line-height: 1.72;
 }
 
 /* Linha divisória orgânica */
@@ -223,4 +274,115 @@
 @keyframes gm-leaf-sway {
   0%, 100% { transform: rotate(-25deg) translateY(0); }
   50% { transform: rotate(-18deg) translateY(-15px); }
+}
+
+@keyframes gmIconLift {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  45% {
+    transform: translateY(-3px) scale(1.04);
+  }
+}
+
+@keyframes gmIconDraw {
+  0% {
+    stroke-dashoffset: 76;
+    opacity: 0.45;
+  }
+  38%, 72% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: -76;
+    opacity: 0.45;
+  }
+}
+
+@keyframes gmCertDraw {
+  0% {
+    stroke-dashoffset: 62;
+    opacity: 0.42;
+  }
+  38%, 72% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: -62;
+    opacity: 0.42;
+  }
+}
+
+@keyframes gmCheckPulse {
+  0%, 18% {
+    stroke-dashoffset: 18;
+    opacity: 0.35;
+  }
+  42%, 72% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: -18;
+    opacity: 0.35;
+  }
+}
+
+@keyframes gmOrbitDraw {
+  0% {
+    stroke-dashoffset: 64;
+    transform: rotate(-12deg);
+    opacity: 0.42;
+  }
+  42%, 72% {
+    stroke-dashoffset: 0;
+    transform: rotate(12deg);
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: -64;
+    transform: rotate(18deg);
+    opacity: 0.42;
+  }
+}
+
+@keyframes gmHandTick {
+  0%, 18% {
+    stroke-dashoffset: 18;
+    transform: rotate(-6deg);
+    opacity: 0.38;
+  }
+  42%, 72% {
+    stroke-dashoffset: 0;
+    transform: rotate(6deg);
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: -18;
+    transform: rotate(10deg);
+    opacity: 0.38;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gm-icon-orbit,
+  .gm-icon-orbit path:first-child,
+  .gm-cert-draw,
+  .gm-cert-pulse-check,
+  .gm-cert-orbit,
+  .gm-cert-hand {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .gm-icon-orbit path:first-child,
+  .gm-cert-draw,
+  .gm-cert-pulse-check,
+  .gm-cert-orbit,
+  .gm-cert-hand {
+    stroke-dashoffset: 0;
+  }
 }

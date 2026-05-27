@@ -184,12 +184,12 @@ const Animations = {
       gsap.from(card, {
         scrollTrigger: {
           trigger: card,
-          start: "top 90%",
+          start: "top 98%",
           toggleActions: "play none none reverse",
         },
         opacity: 0,
-        y: 50,
-        duration: 0.45,
+        y: 24,
+        duration: 0.32,
         ease: "power3.out",
       })
     })
@@ -227,7 +227,7 @@ const Animations = {
           ease: "power3.out",
           scrollTrigger: {
             trigger: step,
-            start: "top 88%",
+            start: "top 96%",
             toggleActions: "play none none reverse",
           },
         })
@@ -243,13 +243,13 @@ const Animations = {
       gsap.from(card, {
         scrollTrigger: {
           trigger: card,
-          start: "top 90%",
+          start: "top 98%",
           toggleActions: "play none none reverse",
         },
         opacity: 0,
-        y: 40,
-        duration: 0.5,
-        delay: index * 0.05,
+        y: 22,
+        duration: 0.32,
+        delay: index * 0.025,
         ease: "power3.out",
       })
     })
@@ -260,12 +260,12 @@ const Animations = {
       gsap.from(card, {
         scrollTrigger: {
           trigger: card,
-          start: "top 92%",
+          start: "top 98%",
           toggleActions: "play none none reverse",
         },
         opacity: 0,
-        y: 40,
-        duration: 0.45,
+        y: 22,
+        duration: 0.32,
         ease: "power3.out",
       })
     })
@@ -276,13 +276,13 @@ const Animations = {
       gsap.from(card, {
         scrollTrigger: {
           trigger: card,
-          start: "top 90%",
+          start: "top 96%",
           toggleActions: "play none none reverse",
         },
         opacity: 0,
-        y: 40,
-        duration: 0.5,
-        delay: index * 0.08,
+        y: 22,
+        duration: 0.32,
+        delay: index * 0.03,
         ease: "power3.out",
       })
     })
@@ -312,7 +312,7 @@ const Animations = {
 
       if (dot) {
         gsap.from(dot, {
-          scrollTrigger: { trigger: item, start: "top 88%", toggleActions: "play none none reverse" },
+          scrollTrigger: { trigger: item, start: "top 96%", toggleActions: "play none none reverse" },
           opacity: 0,
           scale: 0,
           duration: 0.3,
@@ -322,7 +322,7 @@ const Animations = {
 
       if (content) {
         gsap.from(content, {
-          scrollTrigger: { trigger: item, start: "top 88%", toggleActions: "play none none reverse" },
+          scrollTrigger: { trigger: item, start: "top 96%", toggleActions: "play none none reverse" },
           opacity: 0,
           x: 30,
           duration: 0.4,
@@ -365,7 +365,7 @@ const Animations = {
 
     if (contactInfo) {
       gsap.from(contactInfo, {
-        scrollTrigger: { trigger: ".contact-area", start: "top 90%", toggleActions: "play none none reverse" },
+        scrollTrigger: { trigger: ".contact-area", start: "top 96%", toggleActions: "play none none reverse" },
         opacity: 0,
         x: -30,
         duration: 0.6,
@@ -375,7 +375,7 @@ const Animations = {
 
     if (contactLogos) {
       gsap.from(contactLogos, {
-        scrollTrigger: { trigger: ".contact-area", start: "top 90%", toggleActions: "play none none reverse" },
+        scrollTrigger: { trigger: ".contact-area", start: "top 96%", toggleActions: "play none none reverse" },
         opacity: 0,
         x: 30,
         duration: 0.6,
@@ -390,7 +390,7 @@ const Animations = {
 
     gsap.context(() => {
       gsap.from(panel, {
-        scrollTrigger: { trigger: panel, start: "top 90%", toggleActions: "play none none reverse" },
+        scrollTrigger: { trigger: panel, start: "top 96%", toggleActions: "play none none reverse" },
         opacity: 0,
         y: 30,
         scale: 0.99,
@@ -440,6 +440,49 @@ const IntersectionObserverModule = {
     document.querySelectorAll("section").forEach((section) => {
       observer.observe(section)
     })
+  },
+}
+
+// ============================================
+// Card Image Warmup Module
+// ============================================
+const CardImageWarmup = {
+  init() {
+    const images = document.querySelectorAll(
+      ".service-card img, .work-preview-container img, .brand-card img, .work-item img, .brand-item img, .testimonial-card img"
+    )
+
+    if (!images.length) return
+
+    if (!("IntersectionObserver" in window)) {
+      images.forEach((img) => this.prepareImage(img))
+      return
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return
+          this.prepareImage(entry.target)
+          observer.unobserve(entry.target)
+        })
+      },
+      {
+        rootMargin: "1400px 0px",
+        threshold: 0.01,
+      }
+    )
+
+    images.forEach((img) => observer.observe(img))
+  },
+
+  prepareImage(img) {
+    img.loading = "eager"
+    img.decoding = "async"
+
+    if (typeof img.decode === "function" && !img.complete) {
+      img.decode().catch(() => {})
+    }
   },
 }
 
@@ -552,9 +595,8 @@ const ScrollButtons = {
     })
 
     this.scrollDownBtn.addEventListener("click", () => {
-      const currentScroll = window.pageYOffset
-      const windowHeight = window.innerHeight
-      window.scrollTo({ top: currentScroll + windowHeight, behavior: "smooth" })
+      const documentHeight = document.documentElement.scrollHeight
+      window.scrollTo({ top: documentHeight, behavior: "smooth" })
     })
   },
 
@@ -578,8 +620,6 @@ const ScrollButtons = {
 
   hideControls() {
     this.themeToggle?.classList.remove("visible")
-    this.scrollUpBtn?.classList.remove("visible")
-    this.scrollDownBtn?.classList.remove("visible")
   },
 }
 
@@ -664,6 +704,7 @@ function initApp() {
   Animations.init()
   SmoothScroll.init()
   IntersectionObserverModule.init()
+  CardImageWarmup.init()
   Modal.init()
   ScrollButtons.init()
   Counters.init()

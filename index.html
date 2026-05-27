@@ -37,7 +37,7 @@
     <link rel="preload" as="image" href="assets/images/hero/img-hero-01.webp" type="image/webp" fetchpriority="high">
 
     <!-- CSS principal: bundle unico para reduzir bloqueio de renderizacao -->
-    <link rel="stylesheet" href="assets/css/home.bundle.css">
+    <link rel="stylesheet" href="assets/css/home.bundle.css?v=1.2.2">
 </head>
 <body>
 
@@ -92,6 +92,12 @@
         <div class="container">
             <div class="hero-grid">
                 <div class="hero-content">
+                    <svg class="hero-title-mark" viewBox="0 0 320 64" aria-hidden="true">
+                        <path class="hero-title-mark__vine" d="M8 38C54 4 92 58 138 24C184-10 218 46 266 18C286 6 302 8 312 16"/>
+                        <path class="hero-title-mark__leaf hero-title-mark__leaf--left" d="M86 25C70 14 57 17 49 33C65 40 79 36 86 25Z"/>
+                        <path class="hero-title-mark__leaf hero-title-mark__leaf--right" d="M231 25C247 12 263 15 272 31C254 41 239 37 231 25Z"/>
+                        <circle class="hero-title-mark__seed" cx="160" cy="31" r="4"/>
+                    </svg>
                     <h1 class="hero-title">Onde a Natureza e os Negócios se Encontram</h1>
                     <p class="hero-subtitle">Projetos editoriais que unem a simplicidade da natureza com a sofisticação do mundo corporativo.</p>
                     <div class="hero-cta">
@@ -131,7 +137,7 @@
         <div class="container">
             <div class="gm-content">
                 <div class="gm-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <svg class="gm-icon-orbit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                         <path d="M12 22c-4.97 0-9-2.69-9-6v-4c0-3.31 4.03-6 9-6s9 2.69 9 6v4c0 3.31-4.03 6-9 6z"/>
                         <path d="M12 2L12 6"/>
                         <path d="M12 6c-2 3-2 6 0 10"/>
@@ -145,10 +151,10 @@
                 <div class="gm-certs">
                     <div class="gm-cert">
                         <div class="gm-cert-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                                <path d="M2 17l10 5 10-5"/>
-                                <path d="M2 12l10 5 10-5"/>
+                            <svg class="gm-cert-svg gm-cert-svg--paper" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path class="gm-cert-draw" d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                <path class="gm-cert-draw gm-cert-draw--delay-1" d="M2 17l10 5 10-5"/>
+                                <path class="gm-cert-draw gm-cert-draw--delay-2" d="M2 12l10 5 10-5"/>
                             </svg>
                         </div>
                         <span class="gm-cert-name">Papel Certificado FSC</span>
@@ -156,9 +162,9 @@
                     </div>
                     <div class="gm-cert">
                         <div class="gm-cert-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                                <path d="M9 12l2 2 4-4"/>
+                            <svg class="gm-cert-svg gm-cert-svg--shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path class="gm-cert-draw" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                <path class="gm-cert-pulse-check" d="M9 12l2 2 4-4"/>
                             </svg>
                         </div>
                         <span class="gm-cert-name">Tinta de Base Vegetal</span>
@@ -166,9 +172,9 @@
                     </div>
                     <div class="gm-cert">
                         <div class="gm-cert-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <circle cx="12" cy="12" r="10"/>
-                                <path d="M12 6v6l4 2"/>
+                            <svg class="gm-cert-svg gm-cert-svg--impact" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <circle class="gm-cert-orbit" cx="12" cy="12" r="10"/>
+                                <path class="gm-cert-hand" d="M12 6v6l4 2"/>
                             </svg>
                         </div>
                         <span class="gm-cert-name">Baixo Impacto Ambiental</span>
@@ -868,9 +874,9 @@
 
 
     <!-- CTA — COMEÇAR -->
-    <section class="start-section layer-overlap-top" id="comecar">
+    <section class="start-section layer-overlap-top" id="comecar">      
         <div class="container">
-            <div class="start-panel">
+            <div class="start-panel">               
                 <span class="section-label">Começar</span>
                 <h2 class="section-title">Um projeto editorial merece um processo à altura.</h2>
                 <p class="section-description">A Editora Ortz estrutura obras, volumes e narrativas de marca com atenção ao conteúdo, ao objeto e ao tempo de circulação.</p>
@@ -1106,7 +1112,7 @@
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-    <script src="assets/js/js.global.js" defer></script>
+    <script src="assets/js/js.global.js?v=1.2.2" defer></script>
 
     <!-- Registro do Service Worker (PWA) -->
     <script>
@@ -1118,18 +1124,27 @@
         });
       }
     </script>
-
-    <!-- Botões de Scroll -->
-    <button class="scroll-up-btn" aria-label="Scroll to top" title="Ir para o topo">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M18 15l-6-6-6 6"/>
-        </svg>
-    </button>
-    <button class="scroll-down-btn" aria-label="Scroll down" title="Rolar para baixo">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M6 9l6 6 6-6"/>
-        </svg>
-    </button>
-
+    <!-- Controle de Scroll -->
+    <div class="scroll-nav" aria-label="Controle de rolagem">
+        <button class="scroll-mouse-btn" type="button" aria-label="Mostrar opcoes de rolagem">
+            <svg class="scroll-mouse-icon" viewBox="0 0 32 48" fill="none" aria-hidden="true">
+                <rect x="7" y="3" width="18" height="32" rx="9" stroke="currentColor" stroke-width="1.8"/>
+                <path class="scroll-mouse-wheel" d="M16 10v7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                <path class="scroll-mouse-line" d="M16 39v6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+        </button>
+        <div class="scroll-nav-actions">
+            <button class="scroll-up-btn" aria-label="Ir para o topo" title="Ir para o topo">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 15l-6-6-6 6"/>
+                </svg>
+            </button>
+            <button class="scroll-down-btn" aria-label="Ir para o fim da pagina" title="Ir para o fim da pagina">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 9l6 6 6-6"/>
+                </svg>
+            </button>
+        </div>
+    </div>
 </body>
 </html>

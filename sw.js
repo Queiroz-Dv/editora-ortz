@@ -1,7 +1,7 @@
 ﻿// Service Worker - Editora Ortz PWA
 // Cache: HTML Network First, assets locais Cache First, CDN Stale-While-Revalidate
 
-const CACHE_VERSION = 'v1.2.0';
+const CACHE_VERSION = 'v1.2.2';
 const STATIC_CACHE  = `ortz-static-${CACHE_VERSION}`;
 const DYNAMIC_CACHE = `ortz-dynamic-${CACHE_VERSION}`;
 const IMAGE_CACHE   = `ortz-images-${CACHE_VERSION}`;
@@ -13,8 +13,8 @@ const PRECACHE_ASSETS = [
   '/sobre.html',
   '/volumes.html',
   '/marcas.html',
-  '/assets/css/home.bundle.css',
-  '/assets/js/js.global.js',
+  '/assets/css/home.bundle.css?v=1.2.2',
+  '/assets/js/js.global.js?v=1.2.2',
   '/manifest.json',
   '/assets/images/institucional/img-institucional-01.png',
   '/assets/images/institucional/img-institucional-02.png',

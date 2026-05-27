@@ -119,12 +119,12 @@ body.dark-mode .brand-card-image-container {
 .brand-card-info {
   padding: 1.6rem 1.6rem 1.75rem;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0));
+    linear-gradient(180deg, rgba(232, 246, 236, 0.92), rgba(232, 246, 236, 0.42));
 }
 
 body.dark-mode .brand-card-info {
   background:
-    linear-gradient(180deg, rgba(152, 137, 125, 0.06), rgba(152, 137, 125, 0));
+    linear-gradient(180deg, rgba(52, 92, 64, 0.20), rgba(52, 92, 64, 0.08));
 }
 
 .brand-name {

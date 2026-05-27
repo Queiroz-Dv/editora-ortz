@@ -146,7 +146,7 @@ body.dark-mode .ef-card {
   border-left: 4px solid #2a1010;
   transform-origin: left center;
   z-index: 5;
-  animation: coverOpenClose 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation: coverOpenClose 4.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
 body.dark-mode .book-cover {
@@ -181,13 +181,13 @@ body.dark-mode .book-cover {
 .book-page.page-1 {
   background: #ddd9dc;
   z-index: 3;
-  animation: pageTurnBauhausOne 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation: pageTurnBauhausOne 4.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
 .book-page.page-2 {
   background: #f7f4ef;
   z-index: 2;
-  animation: pageTurnBauhausTwo 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation: pageTurnBauhausTwo 4.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
 .book-page.page-3 {
