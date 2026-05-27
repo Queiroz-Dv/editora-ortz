@@ -1,0 +1,158 @@
+/* ============================================================
+   DEPOIMENTOS | assets/css/testimonials.css
+   Seção "Vozes" — carousel de social proof — Editora Ortz
+   ============================================================ */
+
+.testimonials {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--color-bg);
+}
+
+.testimonials-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 1.5rem 0;
+  mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+}
+
+.testimonials-track {
+  display: flex;
+  width: max-content;
+  animation: testimonial-marquee 45s linear infinite;
+  flex-shrink: 0;
+  will-change: transform;
+}
+
+@media (hover: hover) {
+  .testimonials-track:hover {
+    animation-play-state: paused;
+  }
+}
+
+.testimonials-group {
+  display: flex;
+  gap: 2rem;
+  padding: 0 1rem;
+  flex-shrink: 0;
+}
+
+.testimonial-card {
+  flex: 0 0 min(420px, 85vw);
+  padding: 2.5rem;
+  border-radius: 2rem;
+  background: var(--color-light);
+  border: 1px solid rgba(106, 23, 23, 0.06);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06);
+  transition: var(--transition);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+body.dark-mode .testimonial-card {
+  background-color: var(--color-light);
+  border-color: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.25);
+}
+
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(106, 23, 23, 0.1);
+}
+
+body.dark-mode .testimonial-card:hover {
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.35);
+}
+
+/* Aspas decorativas */
+.testimonial-quote-icon {
+  font-family: var(--font-serif);
+  font-size: 4rem;
+  line-height: 1;
+  color: var(--color-primary);
+  opacity: 0.2;
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+}
+
+.testimonial-text {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  color: var(--color-text);
+  line-height: 1.85;
+  font-style: italic;
+  font-weight: 400;
+  flex-grow: 1;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(106, 23, 23, 0.08);
+}
+
+body.dark-mode .testimonial-author {
+  border-top-color: rgba(255, 255, 255, 0.08);
+}
+
+.testimonial-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-primary), #a85151);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-weight: 600;
+  flex-shrink: 0;
+  border: 2px solid rgba(106, 23, 23, 0.15);
+}
+
+.testimonial-author-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.testimonial-name {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--color-text);
+}
+
+.testimonial-role {
+  font-size: 0.82rem;
+  color: var(--color-text-secondary);
+}
+
+/* Stars de rating */
+.testimonial-stars {
+  display: flex;
+  gap: 2px;
+  color: #d4a853;
+  margin-bottom: 0.5rem;
+}
+
+.testimonial-stars svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+@keyframes testimonial-marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

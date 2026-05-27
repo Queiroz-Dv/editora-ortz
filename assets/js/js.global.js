@@ -1,9 +1,12 @@
 // ============================================
 // GSAP Setup
 // ============================================
-const gsap = window.gsap
-const ScrollTrigger = window.gsap.ScrollTrigger
-gsap.registerPlugin(ScrollTrigger)
+const gsap = window.gsap || null
+const ScrollTrigger = gsap?.ScrollTrigger || null
+
+if (gsap && ScrollTrigger) {
+  gsap.registerPlugin(ScrollTrigger)
+}
 
 // ============================================
 // Navigation Module
@@ -35,7 +38,7 @@ const Navigation = {
     if (!("IntersectionObserver" in window)) {
       window.addEventListener("scroll", () => {
         this.nav.classList.toggle("scrolled", window.scrollY > 100)
-      })
+      }, { passive: true })
       return
     }
 
@@ -143,6 +146,8 @@ const Slideshow = {
 // ============================================
 const Animations = {
   init() {
+    if (!gsap) return
+
     this.animateHero()
     this.animateServices()
     this.animateProcess()
@@ -538,7 +543,7 @@ const ScrollButtons = {
       } else {
         this.scrollDownBtn.classList.remove("visible")
       }
-    })
+    }, { passive: true })
   },
 
   attachButtonListeners() {
@@ -558,7 +563,7 @@ const ScrollButtons = {
       this.showControls()
       clearTimeout(this.hideTimer)
       this.hideTimer = setTimeout(() => this.hideControls(), 3000)
-    })
+    }, { passive: true })
   },
 
   showControls() {
@@ -579,6 +584,77 @@ const ScrollButtons = {
 }
 
 // ============================================
+// Counters Module
+// ============================================
+const Counters = {
+  init() {
+    const counters = document.querySelectorAll('.counter')
+    if (!counters.length) return
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const counter = entry.target
+          const target = +counter.getAttribute('data-target')
+          // Temporarily set to 0 to animate up
+          counter.innerText = '0'
+          this.animateCounter(counter, target)
+          observer.unobserve(counter)
+        }
+      })
+    }, { threshold: 0.5 })
+
+    counters.forEach(counter => observer.observe(counter))
+  },
+
+  animateCounter(el, target) {
+    let current = 0
+    const duration = 2000 // 2 seconds
+    const increment = target / (duration / 16) // roughly 60fps
+
+    const updateCounter = () => {
+      current += increment
+      if (current < target) {
+        el.innerText = Math.ceil(current)
+        requestAnimationFrame(updateCounter)
+      } else {
+        el.innerText = target
+      }
+    }
+    updateCounter()
+  }
+}
+
+// ============================================
+// FAQ Module
+// ============================================
+const FAQ = {
+  init() {
+    const faqItems = document.querySelectorAll('.faq-item')
+    if (!faqItems.length) return
+
+    faqItems.forEach(item => {
+      const question = item.querySelector('.faq-question')
+      question.addEventListener('click', () => {
+        const isActive = item.classList.contains('active')
+        
+        // Close all other items
+        faqItems.forEach(faq => {
+          faq.classList.remove('active')
+          faq.querySelector('.faq-question').setAttribute('aria-expanded', 'false')
+        })
+
+        // Toggle current item
+        if (!isActive) {
+          item.classList.add('active')
+          question.setAttribute('aria-expanded', 'true')
+        }
+      })
+    })
+  }
+}
+
+// ============================================
 // Initialize All Modules
 // ============================================
 function initApp() {
@@ -590,6 +666,8 @@ function initApp() {
   IntersectionObserverModule.init()
   Modal.init()
   ScrollButtons.init()
+  Counters.init()
+  FAQ.init()
 }
 
 // Run initialization when DOM is ready

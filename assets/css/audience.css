@@ -1,0 +1,167 @@
+/* ============================================================
+   PÚBLICO-ALVO | assets/css/audience.css
+   Seção "Para Quem Criamos" — Editora Ortz
+   ============================================================ */
+
+.audience {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--color-bg);
+}
+
+.audience-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.audience-card {
+  padding: 2.5rem;
+  border-radius: 2rem;
+  background: var(--color-light);
+  border: 1px solid rgba(106, 23, 23, 0.06);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: var(--transition);
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  position: relative;
+  overflow: hidden;
+}
+
+body.dark-mode .audience-card {
+  background-color: var(--color-light);
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+.audience-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(106, 23, 23, 0.1);
+  border-color: rgba(106, 23, 23, 0.15);
+}
+
+body.dark-mode .audience-card:hover {
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+/* Acento lateral */
+.audience-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 40px;
+  border-radius: 0 3px 3px 0;
+  background: var(--color-primary);
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.audience-card:hover::before {
+  opacity: 1;
+  height: 60px;
+}
+
+.audience-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 1rem;
+  background: rgba(106, 23, 23, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1.6rem;
+  transition: var(--transition);
+}
+
+.audience-icon svg {
+  width: 28px;
+  height: 28px;
+  color: var(--color-primary);
+  transition: color 0.3s ease;
+}
+
+body.dark-mode .audience-icon {
+  background: rgba(106, 23, 23, 0.2);
+}
+
+body.dark-mode .audience-icon svg {
+  color: var(--color-primary);
+}
+
+.audience-card:hover .audience-icon {
+  background: var(--color-primary);
+  transform: scale(1.08);
+}
+
+.audience-card:hover .audience-icon svg {
+  color: #ffffff;
+}
+
+/* Animações específicas dos SVGs no hover */
+.audience-card:hover .svg-anim-hotel .svg-path-2 {
+  animation: svg-dash 1.5s ease-out forwards;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+}
+
+.audience-card:hover .svg-anim-leaf .svg-path-1,
+.audience-card:hover .svg-anim-leaf .svg-path-2 {
+  animation: svg-dash 1s ease-out forwards;
+  stroke-dasharray: 50;
+  stroke-dashoffset: 50;
+}
+
+.audience-card:hover .svg-anim-corp .svg-path-4 {
+  animation: svg-pulse 1s infinite alternate;
+}
+
+.audience-card:hover .svg-anim-bio .svg-path-1 {
+  animation: svg-dash 2s ease-out forwards;
+  stroke-dasharray: 150;
+  stroke-dashoffset: 150;
+}
+
+@keyframes svg-dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes svg-pulse {
+  from {
+    transform: scale(0.8);
+    transform-origin: center;
+  }
+  to {
+    transform: scale(1.2);
+    transform-origin: center;
+  }
+}
+
+.audience-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.audience-name {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+body.dark-mode .audience-name {
+  color: var(--color-text);
+}
+
+.audience-desc {
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  line-height: 1.75;
+}

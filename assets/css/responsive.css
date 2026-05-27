@@ -78,6 +78,19 @@
   /* Features grid */
   .ef-grid { grid-template-columns: 1fr; }
 
+  /* Impact */
+  .impact-grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* Newsletter */
+  .newsletter-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .newsletter-form {
+    width: 100%;
+  }
+
   /* Contact */
   .contact-card { padding: 2.5rem; }
 
@@ -115,6 +128,21 @@
   /* Features */
   .ef-card { padding: 2rem 1.5rem; }
   .ef-visual { min-height: 130px; }
+
+  /* Impact */
+  .impact-grid { grid-template-columns: 1fr; }
+
+  /* Brands */
+  .brands-grid { grid-template-columns: 1fr; }
+  .brand-card-image-container { height: 320px; }
+
+  /* Newsletter */
+  .newsletter-form { flex-direction: column; }
+  .newsletter-input,
+  .newsletter-btn {
+    width: 100%;
+    min-width: 0;
+  }
 
   /* Protocol */
   .protocol-stack { width: calc(100% - 1rem); }

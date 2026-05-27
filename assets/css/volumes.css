@@ -5,16 +5,30 @@
 
 /* === Seção volumes na index === */
 .our-work {
-  background: linear-gradient(to bottom, var(--color-bg) 0%, var(--color-light) 100%);
+  background: linear-gradient(135deg, #2a0b0b 0%, #150505 100%);
   overflow: hidden;
   position: relative;
+  padding: 8rem 0 10rem;
+}
+
+/* Garante o contraste dos textos no fundo borgonha escuro */
+.our-work .section-title {
+  color: #f4efe9 !important;
+}
+
+.our-work .section-description {
+  color: #cbbdb3 !important;
+}
+
+.our-work .section-label {
+  color: #dfb893 !important;
 }
 
 .work-buttons {
   display: flex;
   justify-content: center;
   gap: 2rem;
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
   flex-wrap: wrap;
   position: relative;
   z-index: 2;
@@ -33,48 +47,61 @@
   align-items: center;
   gap: 0.8rem;
   transition: var(--transition);
-  box-shadow: 0 4px 20px rgba(106, 23, 23, 0.28);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   text-decoration: none;
   letter-spacing: 0.3px;
 }
 
 .work-btn:hover {
   transform: translateY(-2px) scale(1.03);
-  box-shadow: 0 8px 30px rgba(106, 23, 23, 0.38);
+  box-shadow: 0 8px 30px rgba(106, 23, 23, 0.45);
   background-color: #8a2020;
 }
 
 .work-preview-container {
   position: relative;
-  margin: 0 auto;
-  margin-top: -4rem;
-  padding-top: 1rem;
-  max-width: 520px;
+  width: 100%;
+  margin-top: 1rem;
   z-index: 1;
-  opacity: 0.18;
-  mask-image: linear-gradient(to bottom, black 20%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to bottom, black 20%, transparent 100%);
-  transition: var(--transition);
+  opacity: 0.35;
+  transition: opacity 0.5s ease;
   pointer-events: none;
+  mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
 }
 
-.work-buttons:hover + .work-preview-container {
-  opacity: 0.38;
-  transform: translateY(4px);
+.our-work:hover .work-preview-container {
+  opacity: 0.55;
+}
+
+.work-preview-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
 }
 
 .work-preview-images {
   display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  padding-bottom: 2rem;
+  gap: 2.5rem;
+  padding: 0 1.25rem;
 }
 
 .work-preview-images img {
-  width: 140px;
-  height: auto;
-  border-radius: 6px;
-  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.28);
+  width: 190px;
+  height: 285px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  background-color: #1a0a0a;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 /* === Grid de obras (página volumes.html) === */

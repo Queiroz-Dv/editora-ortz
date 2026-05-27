@@ -1,0 +1,286 @@
+/* ============================================================
+   NEWSLETTER | assets/css/newsletter.css
+   Seção de captura de leads + Blog preview — Editora Ortz
+   ============================================================ */
+
+/* === NEWSLETTER BANNER === */
+.newsletter {
+  --newsletter-green: #1f6f3d;
+  --newsletter-green-deep: #0d351e;
+  --newsletter-green-bright: #77b982;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 88% 18%, rgba(119, 185, 130, 0.22), transparent 30%),
+    linear-gradient(135deg, var(--newsletter-green-deep) 0%, var(--newsletter-green) 58%, #143d23 100%);
+  padding: 5rem 0;
+}
+
+.newsletter::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  opacity: 0.04;
+  pointer-events: none;
+}
+
+.newsletter-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+}
+
+.newsletter-text {
+  max-width: 560px;
+}
+
+.newsletter-label {
+  display: inline-block;
+  font-size: 0.82rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: rgba(219, 241, 222, 0.76);
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+}
+
+.newsletter-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 400;
+  color: #ffffff;
+  line-height: 1.3;
+  margin-bottom: 0.8rem;
+}
+
+.newsletter-desc {
+  font-size: 0.98rem;
+  color: rgba(235, 248, 237, 0.72);
+  line-height: 1.7;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.newsletter-input {
+  padding: 1rem 1.5rem;
+  border: 2px solid rgba(235, 248, 237, 0.22);
+  border-radius: 999px;
+  background: rgba(235, 248, 237, 0.09);
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-family: var(--font-sans);
+  min-width: 280px;
+  transition: var(--transition);
+  backdrop-filter: blur(4px);
+}
+
+.newsletter-input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.newsletter-input:focus {
+  outline: none;
+  border-color: rgba(177, 220, 184, 0.62);
+  background: rgba(235, 248, 237, 0.14);
+}
+
+.newsletter-btn {
+  padding: 1rem 2rem;
+  border: 2px solid #ffffff;
+  border-radius: 999px;
+  background: #ffffff;
+  color: var(--newsletter-green-deep);
+  font-size: 0.95rem;
+  font-weight: 600;
+  font-family: var(--font-sans);
+  cursor: pointer;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+
+.newsletter-btn:hover {
+  background: var(--newsletter-green-bright);
+  border-color: var(--newsletter-green-bright);
+  color: #0d2416;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(13, 53, 30, 0.34);
+}
+
+/* === BLOG PREVIEW (INSIGHTS) === */
+.insights {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--color-bg);
+}
+
+.insights-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.insight-card {
+  border-radius: 2rem;
+  overflow: hidden;
+  background: var(--color-light);
+  border: 1px solid rgba(106, 23, 23, 0.06);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+}
+
+body.dark-mode .insight-card {
+  background-color: var(--color-light);
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+.insight-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(106, 23, 23, 0.12);
+}
+
+body.dark-mode .insight-card:hover {
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.insight-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+}
+
+.insight-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.insight-card:hover .insight-image img {
+  transform: scale(1.06);
+}
+
+.insight-tag {
+  position: absolute;
+  bottom: 0.8rem;
+  left: 0.8rem;
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  background: var(--color-primary);
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.insight-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  flex-grow: 1;
+}
+
+.insight-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+}
+
+.insight-meta span {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.insight-meta svg {
+  width: 14px;
+  height: 14px;
+}
+
+.insight-title {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--color-text);
+  line-height: 1.35;
+}
+
+.insight-excerpt {
+  font-size: 0.92rem;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+}
+
+.insight-read-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--color-primary);
+  font-size: 0.88rem;
+  font-weight: 600;
+  margin-top: auto;
+  padding-top: 0.5rem;
+  transition: var(--transition);
+}
+
+.insight-card:hover .insight-read-more {
+  gap: 0.7rem;
+}
+
+.insight-read-more svg {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.3s ease;
+}
+
+.insight-card:hover .insight-read-more svg {
+  transform: translateX(4px);
+}
+
+/* Link "Ver todos" */
+.insights-all {
+  text-align: center;
+}
+
+.insights-all-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: var(--transition);
+}
+
+.insights-all-link:hover {
+  gap: 0.8rem;
+}
+
+.insights-all-link svg {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.3s ease;
+}
+
+.insights-all-link:hover svg {
+  transform: translateX(4px);
+}

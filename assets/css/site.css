@@ -10,54 +10,66 @@
 }
 
 :root {
-  --color-primary:        #6a1717;
-  --color-secondary:      #98897d;
-  --color-light:          #ddd9dc;
-  --color-accent:         #e41388;
-  --color-dark:           #110f11;
-  --color-white:          #ffffff;
-  --color-bg:             #ffffff;
-  --color-text:           #2a1010;
+  --color-primary: #6a1717;
+  --color-secondary: #98897d;
+  --color-light: #ddd9dc;
+  --color-dark: #110f11;
+  --color-white: #fcfbfa;
+  --color-bg: #faf6ee;
+  --color-text: #2a1010;
   --color-text-secondary: #5a4a42;
 
   --font-serif: "Cormorant Garamond", serif;
-  --font-sans:  "Montserrat", sans-serif;
+  --font-sans: "Montserrat", sans-serif;
 
   --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Dark mode */
 body.dark-mode {
-  --color-bg:             #141212; /* Cinza quente terroso muito escuro (evita preto total) */
-  --color-text:           #e5e0dc; /* Off-white suave que acalma a vista */
-  --color-text-secondary: #ab9f97; /* Cinza terroso médio aconchegante */
-  --color-light:          #1b1918; /* Para elementos ligeiramente contrastantes */
-  --color-white:          #22201e; /* Para cards de fundo/modal */
-  --color-dark:           #e5e0dc;
+  --color-bg: #141212;
+  /* Cinza quente terroso muito escuro (evita preto total) */
+  --color-text: #e5e0dc;
+  /* Off-white suave que acalma a vista */
+  --color-text-secondary: #ab9f97;
+  /* Cinza terroso médio aconchegante */
+  --color-light: #1b1918;
+  /* Para elementos ligeiramente contrastantes */
+  --color-white: #22201e;
+  /* Para cards de fundo/modal */
+  --color-dark: #e5e0dc;
+  background-image: none !important;
 }
 
 /* Base */
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   font-family: var(--font-sans);
   color: var(--color-text);
   background-color: var(--color-bg);
+  background-image: linear-gradient(rgba(250, 246, 238, 0.80), rgba(250, 246, 238, 0.80)), 
+  url("https://images.unsplash.com/photo-1692230181097-1451d15f270b?auto=format&fit=crop&w=1600&q=75");
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
   line-height: 1.6;
   overflow-x: hidden;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease, background-image 0.3s ease;
 }
 
-/* Grain de textura global */
+/* Grain de textura global (efeito papel texturizado fino) */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   z-index: 3000;
   pointer-events: none;
-  opacity: 0.045;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
-  mix-blend-mode: multiply;
+  opacity: 0.055;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0.33 0.33 0.33 0 0 0.33 0.33 0.33 0 0 0.33 0.33 0.33 0 0 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E");
+  mix-blend-mode: soft-light;
 }
 
 /* Container */
@@ -74,11 +86,18 @@ body::before {
 }
 
 /* Seções */
-section { padding: 8rem 0; }
+section {
+  padding: 8rem 0;
+}
 
 /* Cabeçalhos de seção */
-.section-header { margin-bottom: 4rem; }
-.section-header.centered { text-align: center; }
+.section-header {
+  margin-bottom: 4rem;
+}
+
+.section-header.centered {
+  text-align: center;
+}
 
 .section-label {
   display: inline-block;
@@ -99,7 +118,9 @@ section { padding: 8rem 0; }
   margin-bottom: 1.5rem;
 }
 
-body.dark-mode .section-title { color: var(--color-text); }
+body.dark-mode .section-title {
+  color: var(--color-text);
+}
 
 .section-description {
   font-size: 1.1rem;
@@ -108,7 +129,9 @@ body.dark-mode .section-title { color: var(--color-text); }
   line-height: 1.8;
 }
 
-.section-header.centered .section-description { margin: 0 auto; }
+.section-header.centered .section-description {
+  margin: 0 auto;
+}
 
 /* === BOTÕES === */
 .btn {
@@ -164,7 +187,9 @@ body.dark-mode .section-title { color: var(--color-text); }
   padding: 2rem;
 }
 
-.modal.active { display: flex; }
+.modal.active {
+  display: flex;
+}
 
 .modal-overlay {
   position: absolute;
@@ -220,7 +245,7 @@ body.dark-mode .section-title { color: var(--color-text); }
   text-align: center;
   border-radius: 3rem;
   border: 1px solid rgba(106, 23, 23, 0.10);
-  background-color: #ffffff;
+  background-color: var(--color-white);
   box-shadow: 0 30px 80px rgba(17, 15, 17, 0.09);
 }
 
@@ -229,8 +254,13 @@ body.dark-mode .start-panel {
   border-color: rgba(152, 137, 125, 0.15);
 }
 
-.start-panel .section-title { margin-bottom: 1rem; }
-.start-panel .section-description { margin: 0 auto 2rem; }
+.start-panel .section-title {
+  margin-bottom: 1rem;
+}
+
+.start-panel .section-description {
+  margin: 0 auto 2rem;
+}
 
 /* === PÁGINAS INTERNAS === */
 .page-simple-header {
@@ -242,7 +272,7 @@ body.dark-mode .start-panel {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background-image: url('../images/institucional/img-institucional-03.jpg');
+  background-image: url('../images/optimized/institucional/img-institucional-03.webp');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -315,7 +345,9 @@ body.dark-mode .start-panel {
 }
 
 /* === VALORES (página sobre.html) === */
-.values { background-color: var(--color-bg); }
+.values {
+  background-color: var(--color-bg);
+}
 
 .values-grid {
   display: grid;
@@ -351,7 +383,9 @@ body.dark-mode .start-panel {
   color: var(--color-dark);
 }
 
-body.dark-mode .value-title { color: var(--color-text); }
+body.dark-mode .value-title {
+  color: var(--color-text);
+}
 
 .value-description {
   color: var(--color-secondary);
@@ -408,8 +442,13 @@ body.dark-mode .value-title { color: var(--color-text); }
   position: relative;
 }
 
-.timeline-item:nth-child(even) { flex-direction: row-reverse; }
-.timeline-item:nth-child(even) .timeline-content { text-align: right; }
+.timeline-item:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+  text-align: right;
+}
 
 .timeline-dot {
   position: absolute;
@@ -425,7 +464,9 @@ body.dark-mode .value-title { color: var(--color-text); }
   transition: var(--transition);
 }
 
-.timeline-item:hover .timeline-dot { transform: translateX(-50%) scale(1.3); }
+.timeline-item:hover .timeline-dot {
+  transform: translateX(-50%) scale(1.3);
+}
 
 .timeline-content {
   width: 45%;
@@ -519,7 +560,9 @@ body.dark-mode .qrz-logo-container .logo-dark {
   filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.12));
 }
 
-.qrz-text { text-align: center; }
+.qrz-text {
+  text-align: center;
+}
 
 .qrz-title {
   font-family: var(--font-serif);
@@ -606,4 +649,47 @@ body.dark-mode .scroll-down-btn:hover {
   background-color: var(--color-primary);
   color: #ffffff;
   border-color: var(--color-primary);
+}
+
+/* ============================================================
+   UTILITÁRIOS DE ESTÉTICA DE CAMADAS
+   ============================================================ */
+
+.layer-overlap-top {
+  margin-top: -3rem;
+  border-radius: 3rem 3rem 0 0;
+  position: relative;
+  z-index: 10;
+  padding-top: 6rem;
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.05);
+}
+
+body.dark-mode .layer-overlap-top {
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.25);
+}
+
+.hero+.layer-overlap-top {
+  margin-top: -3rem;
+}
+
+.layer-overlap-bottom {
+  margin-bottom: -3rem;
+  border-radius: 0 0 3rem 3rem;
+  position: relative;
+  z-index: 10;
+  padding-bottom: 6rem;
+}
+
+/* Transparência para seções claras herdarem a textura de papel do body */
+.testimonials,
+.services,
+.process,
+.audience,
+.brands,
+.faq,
+.editorial-features,
+.values,
+.qrz-connection,
+.newsletter {
+  background-color: transparent !important;
 }

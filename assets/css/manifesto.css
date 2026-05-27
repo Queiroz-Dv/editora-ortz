@@ -1,0 +1,226 @@
+/* ============================================================
+   MANIFESTO VERDE | assets/css/manifesto.css
+   Seção de compromisso ambiental — Editora Ortz
+   ============================================================ */
+
+.green-manifesto {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    170deg,
+    #0a1f12 0%,
+    #122a1a 30%,
+    #1a3324 60%,
+    #0e1c13 100%
+  );
+  padding: 7rem 0;
+}
+
+/* Textura orgânica de fundo */
+.green-manifesto::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.06;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+/* Partículas flutuantes decorativas */
+.gm-particles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.gm-particle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(74, 175, 108, 0.12);
+  animation: gm-float 18s ease-in-out infinite;
+}
+
+.gm-particle:nth-child(1) {
+  width: 300px; height: 300px;
+  top: -80px; right: -60px;
+  animation-delay: 0s;
+}
+.gm-particle:nth-child(2) {
+  width: 200px; height: 200px;
+  bottom: -40px; left: -40px;
+  animation-delay: -6s;
+  background: rgba(106, 23, 23, 0.08);
+}
+.gm-particle:nth-child(3) {
+  width: 160px; height: 160px;
+  top: 40%; left: 60%;
+  animation-delay: -12s;
+}
+
+@keyframes gm-float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(20px, -30px) scale(1.05); }
+  66% { transform: translate(-15px, 20px) scale(0.95); }
+}
+
+/* Conteúdo principal */
+.gm-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.gm-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(74, 175, 108, 0.12);
+  border: 1px solid rgba(74, 175, 108, 0.2);
+  margin-bottom: 2rem;
+  color: #4aaf6c;
+}
+
+.gm-icon svg {
+  width: 32px;
+  height: 32px;
+}
+
+.gm-label {
+  display: inline-block;
+  font-size: 0.82rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #4aaf6c;
+  margin-bottom: 1.2rem;
+  font-weight: 600;
+}
+
+.gm-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.25;
+  margin-bottom: 1.5rem;
+}
+
+.gm-subtitle {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.9;
+  max-width: 720px;
+  margin: 0 auto 3.5rem;
+}
+
+/* Grid de certificações */
+.gm-certs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3.5rem;
+}
+
+.gm-cert {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 2rem 1.5rem;
+  border-radius: 1.5rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(74, 175, 108, 0.1);
+  backdrop-filter: blur(8px);
+  transition: var(--transition);
+}
+
+.gm-cert:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(74, 175, 108, 0.25);
+  transform: translateY(-4px);
+}
+
+.gm-cert-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4aaf6c;
+}
+
+.gm-cert-icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.gm-cert-name {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.88);
+  font-weight: 500;
+}
+
+.gm-cert-desc {
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.45);
+  line-height: 1.6;
+}
+
+/* Linha divisória orgânica */
+.gm-divider {
+  width: 100%;
+  height: 40px;
+  margin: 2rem 0;
+  opacity: 0.15;
+  color: #4aaf6c;
+}
+
+.gm-divider svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Frase final poética */
+.gm-pledge {
+  font-family: var(--font-serif);
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.85;
+  max-width: 600px;
+  margin: 0 auto;
+  font-weight: 300;
+}
+
+/* Folha animada decorativa */
+.gm-leaf {
+  position: absolute;
+  z-index: 1;
+  opacity: 0.08;
+  color: #4aaf6c;
+}
+
+.gm-leaf--left {
+  left: -60px;
+  top: 20%;
+  transform: rotate(-25deg);
+  animation: gm-leaf-sway 8s ease-in-out infinite;
+}
+
+.gm-leaf--right {
+  right: -40px;
+  bottom: 15%;
+  transform: rotate(15deg) scaleX(-1);
+  animation: gm-leaf-sway 10s ease-in-out infinite reverse;
+}
+
+@keyframes gm-leaf-sway {
+  0%, 100% { transform: rotate(-25deg) translateY(0); }
+  50% { transform: rotate(-18deg) translateY(-15px); }
+}

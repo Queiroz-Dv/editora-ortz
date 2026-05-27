@@ -1,7 +1,7 @@
 ﻿// Service Worker - Editora Ortz PWA
 // Cache: HTML Network First, assets locais Cache First, CDN Stale-While-Revalidate
 
-const CACHE_VERSION = 'v1.1.0';
+const CACHE_VERSION = 'v1.2.0';
 const STATIC_CACHE  = `ortz-static-${CACHE_VERSION}`;
 const DYNAMIC_CACHE = `ortz-dynamic-${CACHE_VERSION}`;
 const IMAGE_CACHE   = `ortz-images-${CACHE_VERSION}`;
@@ -13,8 +13,7 @@ const PRECACHE_ASSETS = [
   '/sobre.html',
   '/volumes.html',
   '/marcas.html',
-  '/assets/css/site.css',
-  '/assets/css/responsive.css',
+  '/assets/css/home.bundle.css',
   '/assets/js/js.global.js',
   '/manifest.json',
   '/assets/images/institucional/img-institucional-01.png',
@@ -22,31 +21,6 @@ const PRECACHE_ASSETS = [
   '/assets/images/contato/img-contato-01.png',
   '/assets/images/contato/img-contato-02.png',
   '/assets/images/hero/img-hero-01.webp',
-  '/assets/images/servicos/img-servicos-01.png',
-  '/assets/images/servicos/img-servicos-02.png',
-  '/assets/images/servicos/img-servicos-03.png',
-  '/assets/images/volumes/img-volumes-01.png',
-  '/assets/images/volumes/img-volumes-02.png',
-  '/assets/images/volumes/img-volumes-03.png',
-  '/assets/images/volumes/img-volumes-04.png',
-  '/assets/images/volumes/img-volumes-05.png',
-  '/assets/images/volumes/img-volumes-06.png',
-  '/assets/images/volumes/img-volumes-07.png',
-  '/assets/images/volumes/img-volumes-08.png',
-  '/assets/images/volumes/img-volumes-09.png',
-  '/assets/images/volumes/img-volumes-10.png',
-  '/assets/images/marcas/img-marcas-01-logo.png',
-  '/assets/images/marcas/img-marcas-01.png',
-  '/assets/images/marcas/img-marcas-02-logo.png',
-  '/assets/images/marcas/img-marcas-02.png',
-  '/assets/images/marcas/img-marcas-03-logo.png',
-  '/assets/images/marcas/img-marcas-03.png',
-  '/assets/images/marcas/img-marcas-04-logo.png',
-  '/assets/images/marcas/img-marcas-04.png',
-  '/assets/images/marcas/img-marcas-05-logo.png',
-  '/assets/images/marcas/img-marcas-05.png',
-  '/assets/images/marcas/img-marcas-06-logo.png',
-  '/assets/images/marcas/img-marcas-06.png',
   '/assets/icons/icon-192x192.png',
   '/assets/icons/icon-512x512.png',
 ];

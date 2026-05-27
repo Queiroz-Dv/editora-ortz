@@ -4,38 +4,76 @@
    ============================================================ */
 
 .brands {
-  background-color: var(--color-bg);
+  position: relative;
+  background:
+    linear-gradient(180deg, var(--color-bg) 0%, rgba(221, 217, 220, 0.32) 50%, var(--color-bg) 100%);
+  padding: 6rem 0;
+  overflow: hidden;
+}
+
+/* O fundo 'marcador de página' contrastante */
+.brands::before {
+  content: none;
+}
+
+body.dark-mode .brands {
+  background:
+    linear-gradient(180deg, var(--color-bg) 0%, rgba(152, 137, 125, 0.06) 50%, var(--color-bg) 100%);
+}
+
+.brands .container {
+  position: relative;
+  z-index: 1;
 }
 
 .brands-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 2.5rem;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
 }
 
 .brand-card {
-  background-color: var(--color-light);
-  border-radius: 2rem;
+  background:
+    linear-gradient(180deg, #ffffff 0%, rgba(221, 217, 220, 0.45) 100%);
+  border-radius: 1.5rem;
   overflow: hidden;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
-  transition: var(--transition);
-  border: 1px solid rgba(106, 23, 23, 0.07);
+  box-shadow: 0 12px 34px rgba(17, 15, 17, 0.07);
+  transition:
+    transform 0.62s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.62s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.62s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: 0s;
+  border: 1px solid rgba(106, 23, 23, 0.08);
+}
+
+body.dark-mode .brand-card {
+  background:
+    linear-gradient(180deg, rgba(31, 29, 28, 0.96) 0%, rgba(27, 25, 24, 0.96) 100%);
+  border-color: rgba(152, 137, 125, 0.14);
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.28);
 }
 
 .brand-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 50px rgba(106, 23, 23, 0.13);
-  border-color: rgba(106, 23, 23, 0.16);
+  transform: translateY(-7px);
+  box-shadow: 0 24px 64px rgba(42, 16, 16, 0.14);
+  border-color: rgba(106, 23, 23, 0.18);
+  transition-delay: 80ms;
 }
 
 .brand-card-image-container {
   position: relative;
   height: 380px;
-  background-color: #ffffff;
+  background:
+    radial-gradient(circle at 50% 35%, rgba(152, 137, 125, 0.22), transparent 52%),
+    linear-gradient(145deg, #ffffff 0%, #f4f0ec 100%);
+  border-bottom: 1px solid rgba(106, 23, 23, 0.07);
 }
 
 body.dark-mode .brand-card-image-container {
-  background-color: #1f1b1b;
+  background:
+    radial-gradient(circle at 50% 35%, rgba(152, 137, 125, 0.12), transparent 52%),
+    linear-gradient(145deg, #211e1d 0%, #171514 100%);
+  border-bottom-color: rgba(152, 137, 125, 0.12);
 }
 
 .brand-card-image {
@@ -45,7 +83,9 @@ body.dark-mode .brand-card-image-container {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: var(--transition);
+  transition:
+    opacity 0.68s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.72s cubic-bezier(0.22, 1, 0.36, 1);
   opacity: 0;
   transform: scale(1.04);
 }
@@ -58,21 +98,33 @@ body.dark-mode .brand-card-image-container {
   height: 100%;
   object-fit: contain;
   padding: 2rem;
-  transition: var(--transition);
+  transition:
+    opacity 0.54s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.62s cubic-bezier(0.22, 1, 0.36, 1);
   opacity: 1;
 }
 
 .brand-card:hover .brand-card-image {
   opacity: 1;
   transform: scale(1);
+  transition-delay: 120ms;
 }
 
 .brand-card:hover .brand-card-logo {
   opacity: 0;
+  transform: scale(0.96);
+  transition-delay: 120ms;
 }
 
 .brand-card-info {
-  padding: 1.5rem;
+  padding: 1.6rem 1.6rem 1.75rem;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0));
+}
+
+body.dark-mode .brand-card-info {
+  background:
+    linear-gradient(180deg, rgba(152, 137, 125, 0.06), rgba(152, 137, 125, 0));
 }
 
 .brand-name {

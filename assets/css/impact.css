@@ -1,0 +1,154 @@
+/* ============================================================
+   MÉTRICAS DE IMPACTO | assets/css/impact.css
+   Seção "Números que Falam" — Editora Ortz
+   ============================================================ */
+
+.impact {
+  --impact-green: #1f6f3d;
+  --impact-green-deep: #104225;
+  --impact-green-soft: #dfeee3;
+  --impact-green-mist: #f4faf5;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    180deg,
+    var(--color-bg) 0%,
+    var(--impact-green-mist) 50%,
+    var(--color-bg) 100%
+  );
+}
+
+body.dark-mode .impact {
+  --impact-green-soft: rgba(63, 139, 82, 0.18);
+  --impact-green-mist: rgba(31, 111, 61, 0.08);
+}
+
+.impact .section-label {
+  color: var(--impact-green);
+}
+
+/* Wave SVG superior */
+.impact-wave {
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 100%;
+  line-height: 0;
+  color: var(--color-bg);
+}
+
+.impact-wave svg {
+  width: 100%;
+  height: 60px;
+  fill: currentColor;
+}
+
+/* Conteúdo */
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.impact-stat {
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  border-radius: 2rem;
+  background: linear-gradient(180deg, #ffffff 0%, var(--impact-green-mist) 100%);
+  border: 1px solid rgba(31, 111, 61, 0.11);
+  box-shadow: 0 8px 30px rgba(16, 66, 37, 0.06);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+body.dark-mode .impact-stat {
+  background-color: var(--color-light);
+  background-image: linear-gradient(180deg, rgba(31, 111, 61, 0.12) 0%, var(--color-light) 100%);
+  border-color: rgba(101, 173, 116, 0.14);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.impact-stat:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 48px rgba(31, 111, 61, 0.16);
+}
+
+body.dark-mode .impact-stat:hover {
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.35);
+}
+
+/* Acento decorativo superior */
+.impact-stat::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 3px;
+  border-radius: 0 0 3px 3px;
+  background: linear-gradient(90deg, var(--impact-green-deep), #5fa46b);
+  opacity: 0.6;
+  transition: var(--transition);
+}
+
+.impact-stat:hover::before {
+  width: 80px;
+  opacity: 1;
+}
+
+.impact-stat-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--impact-green-soft);
+  color: var(--impact-green);
+  margin-bottom: 1.2rem;
+}
+
+body.dark-mode .impact-stat-icon {
+  background: rgba(63, 139, 82, 0.22);
+}
+
+.impact-stat-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.impact-number {
+  font-family: var(--font-serif);
+  font-size: clamp(2.8rem, 4vw, 3.8rem);
+  font-weight: 600;
+  color: var(--impact-green-deep);
+  line-height: 1;
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 2px;
+}
+
+body.dark-mode .impact-number {
+  color: #77b982;
+}
+
+.impact-number .counter {
+  display: inline-block;
+}
+
+.impact-number .suffix {
+  font-size: 0.55em;
+  font-weight: 400;
+  opacity: 0.7;
+}
+
+.impact-label {
+  font-size: 0.92rem;
+  color: var(--color-text-secondary);
+  letter-spacing: 0.3px;
+  line-height: 1.5;
+}

@@ -137,3 +137,77 @@ body.dark-mode .logo-display .logo-dark {
   opacity: 1;
   position: static;
 }
+
+/* === FORMULÁRIO DE CONTATO === */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.contact-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+}
+
+.contact-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.contact-form-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: var(--color-text);
+}
+
+.contact-form-input {
+  padding: 0.9rem 1.2rem;
+  border: 1px solid rgba(106, 23, 23, 0.12);
+  border-radius: 0.75rem;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  transition: var(--transition);
+}
+
+body.dark-mode .contact-form-input {
+  background: var(--color-white);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.contact-form-input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(106, 23, 23, 0.08);
+}
+
+.contact-form-input::placeholder {
+  color: var(--color-secondary);
+  opacity: 0.6;
+}
+
+.contact-form-select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236a1717' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+}
+
+.contact-form-textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.contact-form-btn {
+  align-self: flex-start;
+  margin-top: 0.5rem;
+}

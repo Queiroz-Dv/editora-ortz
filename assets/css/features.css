@@ -5,14 +5,27 @@
    ============================================================ */
 
 .editorial-features {
-  background-color: #f7f4ef; /* Areia clara para contrastar com o fundo branco (bg) */
+  background: linear-gradient(135deg, #3d1010 0%, #1c0505 100%);
   padding: 8rem 0;
   position: relative;
   overflow: hidden;
 }
 
 body.dark-mode .editorial-features {
-  background-color: #1a1817; /* Cinza quente terroso contrastante com o fundo */
+  background: linear-gradient(135deg, #260a0a 0%, #100202 100%);
+}
+
+/* Garante contraste dos textos de seção no fundo escuro */
+.editorial-features .section-title {
+  color: #f4efe9 !important;
+}
+
+.editorial-features .section-description {
+  color: #cbbdb3 !important;
+}
+
+.editorial-features .section-label {
+  color: #dfb893 !important;
 }
 
 /* Textura suave de fundo */
@@ -20,10 +33,10 @@ body.dark-mode .editorial-features {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url("../images/institucional/img-institucional-03.jpg");
+  background-image: url("../images/optimized/institucional/img-institucional-03.webp");
   background-size: cover;
   background-position: center;
-  opacity: 0.04;
+  opacity: 0.02;
   pointer-events: none;
 }
 
@@ -94,30 +107,51 @@ body.dark-mode .ef-card {
   );
 }
 
-/* ─── VISUAL 1: Livro animado (Curadoria) ─── */
+/* ─── VISUAL 1: Bauhaus Curadoria (Livro Geométrico) ─── */
 .ef-visual--book {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+}
+
+/* Fundo geométrico */
+.ef-visual--book::before {
+  content: '';
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background-color: rgba(152, 137, 125, 0.25);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .book {
   position: relative;
-  width: 80px;
-  height: 110px;
+  width: 70px;
+  height: 95px;
+  z-index: 2;
+  transform-style: preserve-3d;
+  perspective: 1000px;
 }
 
 .book-cover {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, var(--color-primary), #a03030);
-  border-radius: 3px 8px 8px 3px;
-  box-shadow: 3px 4px 18px rgba(106, 23, 23, 0.35);
+  background: #6a1717;
+  border-radius: 2px 6px 6px 2px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.25);
+  border-left: 4px solid #2a1010;
+  transform-origin: left center;
+  z-index: 5;
+  animation: coverOpenClose 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
 body.dark-mode .book-cover {
-  background: linear-gradient(135deg, #b84e4e, #d67c7c);
-  box-shadow: 3px 4px 18px rgba(214, 124, 124, 0.2);
+  background: #a03030;
+  border-left-color: #141212;
 }
 
 .book-spine {
@@ -128,62 +162,119 @@ body.dark-mode .book-cover {
   width: 10px;
   background: linear-gradient(to right, rgba(0,0,0,0.25), rgba(0,0,0,0.05));
   border-radius: 3px 0 0 3px;
+  z-index: 6;
 }
 
 .book-page {
   position: absolute;
-  right: 0;
-  top: 6px;
-  bottom: 6px;
-  width: 60px;
-  background: #f8f5f0;
-  border-radius: 0 6px 6px 0;
+  right: 2px;
+  top: 5px;
+  bottom: 5px;
+  width: 65px;
+  background: #ddd9dc;
+  border-radius: 0 4px 4px 0;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
   transform-origin: left center;
+  z-index: 1;
 }
 
 .book-page.page-1 {
-  animation: pageTurn 3.5s ease-in-out 0.2s infinite;
-  background: #f0ebe4;
+  background: #ddd9dc;
+  z-index: 3;
+  animation: pageTurnBauhausOne 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
 .book-page.page-2 {
-  animation: pageTurn 3.5s ease-in-out 0.5s infinite;
-  background: #f8f5f0;
+  background: #f7f4ef;
+  z-index: 2;
+  animation: pageTurnBauhausTwo 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
 .book-page.page-3 {
-  animation: pageTurn 3.5s ease-in-out 0.8s infinite;
-  background: #fffcf8;
+  background: #ffffff;
+  width: 45px;
+  right: 0;
+  display: none;
 }
 
-@keyframes pageTurn {
-  0%, 30%    { transform: rotateY(0deg);   opacity: 1; }
-  50%        { transform: rotateY(-140deg); opacity: 0.7; }
-  70%, 100%  { transform: rotateY(0deg);   opacity: 1; }
+@keyframes coverOpenClose {
+  0%, 10% {
+    transform: rotateY(0deg);
+  }
+  30%, 70% {
+    transform: rotateY(-140deg);
+  }
+  90%, 100% {
+    transform: rotateY(0deg);
+  }
 }
 
-/* ─── VISUAL 2: Linhas tipográficas (Identidade) ─── */
+@keyframes pageTurnBauhausOne {
+  0%, 15% {
+    transform: rotateY(0deg);
+  }
+  35%, 65% {
+    transform: rotateY(-120deg);
+  }
+  85%, 100% {
+    transform: rotateY(0deg);
+  }
+}
+
+@keyframes pageTurnBauhausTwo {
+  0%, 20% {
+    transform: rotateY(0deg);
+  }
+  40%, 60% {
+    transform: rotateY(-100deg);
+  }
+  80%, 100% {
+    transform: rotateY(0deg);
+  }
+}
+
+/* ─── VISUAL 2: Bauhaus Tipografia (Grade e Planos) ─── */
 .ef-visual--type {
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 1.5rem;
+  position: relative;
+}
+
+.ef-visual--type::before {
+  content: '';
+  position: absolute;
+  left: 22%;
+  top: 15%;
+  width: 12px;
+  height: 70%;
+  background-color: #98897d;
+  opacity: 0.3;
+  border-radius: 4px;
 }
 
 .type-lines {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
   width: 100%;
-  max-width: 240px;
+  max-width: 200px;
+  position: relative;
+  z-index: 2;
 }
 
 .type-lines span {
   display: block;
-  height: 3px;
-  border-radius: 2px;
-  background: rgba(106, 23, 23, 0.20);
-  animation: typeAppear 2.8s ease-in-out infinite;
+  height: 5px;
+  border-radius: 1px;
+  background: rgba(42, 16, 16, 0.15);
+  transform-origin: left center;
+  animation: typeScaleBauhaus 3.5s ease-in-out infinite;
+}
+
+body.dark-mode .type-lines span {
+  background: rgba(221, 217, 220, 0.15);
 }
 
 .type-lines span:nth-child(1) { width: 85%;  animation-delay: 0s; }
@@ -194,61 +285,108 @@ body.dark-mode .book-cover {
 .type-lines span:nth-child(7) { width: 70%;  animation-delay: 0.9s; }
 
 .type-lines span.accent-line {
-  background: var(--color-primary);
-  height: 4px;
-  width: 40% !important;
+  background: #6a1717 !important;
+  height: 7px;
+  width: 45% !important;
   animation-delay: 0.45s;
 }
 
 body.dark-mode .type-lines span.accent-line {
-  background: #e4a4a4;
+  background: #b84e4e !important;
 }
 
-@keyframes typeAppear {
-  0%   { opacity: 0.15; transform: scaleX(0.85); }
-  50%  { opacity: 0.85; transform: scaleX(1);    }
-  100% { opacity: 0.15; transform: scaleX(0.85); }
+.type-lines::after {
+  content: '';
+  position: absolute;
+  right: 15%;
+  top: 40%;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #6a1717;
+  opacity: 0.85;
+  animation: circlePulseBauhaus 3.5s ease-in-out infinite;
+  z-index: 3;
 }
 
-/* ─── VISUAL 3: Circulação física→digital ─── */
+body.dark-mode .type-lines::after {
+  background-color: #b84e4e;
+}
+
+@keyframes typeScaleBauhaus {
+  0%, 100% { transform: scaleX(0.9); opacity: 0.6; }
+  50%       { transform: scaleX(1); opacity: 1; }
+}
+
+@keyframes circlePulseBauhaus {
+  0%, 100% { transform: scale(0.8); opacity: 0.6; }
+  50%       { transform: scale(1.15); opacity: 0.95; }
+}
+
+/* ─── VISUAL 3: Bauhaus Circulação (Físico & Digital) ─── */
 .ef-visual--circulation {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1.2fr;
   align-items: center;
   justify-items: center;
-  padding: 1.5rem;
-  gap: 1rem;
+  padding: 1.5rem 2rem;
+  gap: 1.5rem;
+  position: relative;
+}
+
+.ef-visual--circulation::before {
+  content: '';
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  background-color: rgba(152, 137, 125, 0.2);
+  right: 18%;
+  top: 30%;
+  transform: rotate(45deg);
+  z-index: 1;
 }
 
 .circ-book {
-  width: 60px;
-  height: 82px;
-  background: linear-gradient(135deg, var(--color-secondary), var(--color-primary));
-  border-radius: 3px 8px 8px 3px;
-  box-shadow: 4px 4px 16px rgba(106, 23, 23, 0.25);
+  width: 55px;
+  height: 78px;
+  background: #6a1717;
+  border-radius: 2px 6px 6px 2px;
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
   position: relative;
-  animation: bookFloat 3s ease-in-out infinite;
+  z-index: 2;
+  animation: bookFloatBauhaus 4s ease-in-out infinite;
+  border-left: 3px solid #2a1010;
+}
+
+body.dark-mode .circ-book {
+  background: #a03030;
+  border-left-color: #141212;
 }
 
 .circ-book::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 8px;
-  background: rgba(0,0,0,0.2);
-  border-radius: 3px 0 0 3px;
+  display: none;
 }
 
-@keyframes bookFloat {
-  0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(-6px); }
+.circ-book::after {
+  content: '';
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  bottom: 5px;
+  width: 6px;
+  background-color: #ddd9dc;
+  border-radius: 1px;
+}
+
+@keyframes bookFloatBauhaus {
+  0%, 100% { transform: translateY(0) rotate(-3deg); }
+  50%       { transform: translateY(-8px) rotate(3deg); }
 }
 
 .circ-wave {
   width: 100%;
-  overflow: hidden;
+  z-index: 2;
+  position: relative;
 }
 
 .circ-wave svg {
@@ -259,26 +397,25 @@ body.dark-mode .type-lines span.accent-line {
 
 .circ-wave path {
   fill: none;
-  stroke: var(--color-primary);
-  stroke-width: 3;
+  stroke: #6a1717;
+  stroke-width: 4;
   stroke-linecap: round;
   stroke-dasharray: 240;
   stroke-dashoffset: 240;
-  animation: waveTrace 2.4s ease-in-out infinite;
-  opacity: 0.7;
+  animation: waveTraceBauhaus 3s ease-in-out infinite;
 }
 
 body.dark-mode .circ-wave path {
-  stroke: #e4a4a4;
+  stroke: #dfb893;
 }
 
-@keyframes waveTrace {
+@keyframes waveTraceBauhaus {
   0%  { stroke-dashoffset: 240; opacity: 0.4; }
-  55% { stroke-dashoffset: 0;   opacity: 0.8; }
+  50% { stroke-dashoffset: 0;   opacity: 0.95; }
   100%{ stroke-dashoffset: -240;opacity: 0.4; }
 }
 
-/* ─── VISUAL 4: Natureza orgânica ─── */
+/* ─── VISUAL 4: Bauhaus Natureza (Crescimento Geométrico) ─── */
 .ef-visual--nature {
   display: flex;
   align-items: flex-end;
@@ -287,59 +424,88 @@ body.dark-mode .circ-wave path {
   position: relative;
 }
 
+.ef-visual--nature::before {
+  content: '';
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-color: rgba(106, 23, 23, 0.1);
+  bottom: 1rem;
+  left: calc(50% - 25px);
+  border-radius: 50%;
+  z-index: 1;
+}
+
 .nature-stem {
-  width: 3px;
+  width: 4px;
   height: 0;
-  background: linear-gradient(to top, var(--color-primary), rgba(106, 23, 23, 0.3));
-  border-radius: 2px;
+  background: #2a1010;
   position: absolute;
   bottom: 1.5rem;
   left: 50%;
   transform: translateX(-50%);
-  animation: stemGrow 2.5s ease-out infinite;
+  animation: stemGrowBauhaus 3.5s ease-out infinite;
+  z-index: 2;
 }
 
 body.dark-mode .nature-stem {
-  background: linear-gradient(to top, #e4a4a4, rgba(228, 164, 164, 0.2));
+  background: #ddd9dc;
 }
 
-@keyframes stemGrow {
+@keyframes stemGrowBauhaus {
   0%   { height: 0;   opacity: 0; }
-  40%  { height: 80px;opacity: 1; }
-  80%  { height: 80px;opacity: 1; }
+  35%, 85%  { height: 85px; opacity: 1; }
   100% { height: 0;   opacity: 0; }
 }
 
 .nature-leaf {
   position: absolute;
-  bottom: 2rem;
   width: 32px;
-  height: 48px;
-  border-radius: 100% 0 100% 0;
-  background: linear-gradient(135deg, rgba(106, 23, 23, 0.55), rgba(152, 137, 125, 0.35));
-  transform-origin: bottom center;
+  height: 16px;
+  border-radius: 32px 32px 0 0;
+  background: #98897d;
   opacity: 0;
+  z-index: 3;
 }
 
 .leaf-1 {
-  left: calc(50% - 36px);
-  animation: leafAppear 2.5s ease-out 0.4s infinite;
-  transform: rotate(-30deg);
-}
-.leaf-2 {
-  right: calc(50% - 36px);
-  animation: leafAppear 2.5s ease-out 0.7s infinite;
-  transform: rotate(30deg) scaleX(-1);
-}
-.leaf-3 {
-  left: calc(50% - 44px);
-  bottom: 3.5rem;
-  animation: leafAppear 2.5s ease-out 1s infinite;
-  transform: rotate(-20deg) scale(0.75);
+  left: calc(50% - 34px);
+  bottom: 3rem;
+  transform: rotate(-90deg);
+  background: #6a1717;
+  animation: leafAppearBauhausLeft 3.5s ease-out infinite;
 }
 
-@keyframes leafAppear {
-  0%         { opacity: 0; transform: rotate(-30deg) scale(0.3); }
-  35%, 70%   { opacity: 0.85; }
-  100%       { opacity: 0; transform: rotate(-30deg) scale(0.3); }
+.leaf-2 {
+  right: calc(50% - 34px);
+  bottom: 4.2rem;
+  transform: rotate(90deg);
+  background: #98897d;
+  animation: leafAppearBauhausRight 3.5s ease-out infinite;
+}
+
+.leaf-3 {
+  left: calc(50% - 34px);
+  bottom: 5.4rem;
+  transform: rotate(-90deg);
+  background: #6a1717;
+  animation: leafAppearBauhausLeftTwo 3.5s ease-out infinite;
+}
+
+@keyframes leafAppearBauhausLeft {
+  0%, 15%    { opacity: 0; transform: rotate(-90deg) scale(0.3); }
+  35%, 80%   { opacity: 0.95; transform: rotate(-90deg) scale(1); }
+  100%       { opacity: 0; transform: rotate(-90deg) scale(0.3); }
+}
+
+@keyframes leafAppearBauhausRight {
+  0%, 25%    { opacity: 0; transform: rotate(90deg) scale(0.3); }
+  45%, 80%   { opacity: 0.95; transform: rotate(90deg) scale(1); }
+  100%       { opacity: 0; transform: rotate(90deg) scale(0.3); }
+}
+
+@keyframes leafAppearBauhausLeftTwo {
+  0%, 35%    { opacity: 0; transform: rotate(-90deg) scale(0.3); }
+  55%, 80%   { opacity: 0.95; transform: rotate(-90deg) scale(1); }
+  100%       { opacity: 0; transform: rotate(-90deg) scale(0.3); }
 }

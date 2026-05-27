@@ -26,13 +26,10 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/site.css">
-    <link rel="stylesheet" href="assets/css/navbar.css">
-    <link rel="stylesheet" href="assets/css/brands.css">
-    <link rel="stylesheet" href="assets/css/volumes.css">
-    <link rel="stylesheet" href="assets/css/footer.css">
-    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="preload" as="image" href="assets/images/optimized/institucional/img-institucional-03.webp" type="image/webp" fetchpriority="high">
+    <link rel="stylesheet" href="assets/css/home.bundle.css">
 </head>
 <body>
     <button class="theme-toggle" aria-label="Toggle dark mode">
@@ -66,8 +63,8 @@
         <div class="nav-container">
             <a href="index.html" class="nav-logo-link">
                 <div class="nav-logo">
-                    <img src="assets/images/institucional/img-institucional-01.png" alt="Editora Ortz" class="logo-icon logo-light">
-                    <img src="assets/images/institucional/img-institucional-02.png" alt="Editora Ortz" class="logo-icon logo-dark">
+                    <img decoding="async" src="assets/images/institucional/img-institucional-01.png" width="300" height="300" alt="Editora Ortz" class="logo-icon logo-light">
+                    <img decoding="async" src="assets/images/institucional/img-institucional-02.png" width="300" height="300" alt="Editora Ortz" class="logo-icon logo-dark">
                     <span class="logo-text">Editora Ortz</span>
                 </div>
             </a>
@@ -98,54 +95,54 @@
             </div>
             
             <div class="work-grid brands-grid">
-                <div class="brand-item" onclick="openCoverModal(this)" data-cover="assets/images/marcas/img-marcas-01.png">
+                <div class="brand-item" onclick="openCoverModal(this)" data-cover="assets/images/optimized/marcas/img-marcas-01.webp">
                     <div class="brand-image">
-                        <img src="assets/images/marcas/img-marcas-01.png" alt="Hotéis Serra e Sereno">
+                        <img loading="lazy" decoding="async" src="assets/images/optimized/marcas/img-marcas-01.webp" width="720" height="900" alt="Hotéis Serra e Sereno">
                     </div>
                     <div class="brand-info">
                         <h4 class="brand-name">Hotéis Serra e Sereno</h4>
                         <p class="brand-description">Luxo rústico e o conforto da natureza brasileira.</p>
                     </div>
                 </div>                
-                <div class="brand-item" onclick="openCoverModal(this)" data-cover="assets/images/marcas/img-marcas-02.png">
+                <div class="brand-item" onclick="openCoverModal(this)" data-cover="assets/images/optimized/marcas/img-marcas-02.webp">
                     <div class="brand-image">
-                        <img src="assets/images/marcas/img-marcas-02.png" alt="Códice Botânico">
+                        <img loading="lazy" decoding="async" src="assets/images/optimized/marcas/img-marcas-02.webp" width="720" height="900" alt="Códice Botânico">
                     </div>
                     <div class="brand-info">
                         <h4 class="brand-name">Códice Botânico</h4>
                         <p class="brand-description">Papelaria de luxo com materiais sustentáveis para obras de alto valor.</p>
                     </div>
                 </div>
-                <div class="brand-item" onclick="openCoverModal(this)" data-cover="assets/images/marcas/img-marcas-03.png">
+                <div class="brand-item" onclick="openCoverModal(this)" data-cover="assets/images/optimized/marcas/img-marcas-03.webp">
                     <div class="brand-image">
-                        <img src="assets/images/marcas/img-marcas-03.png" alt="Regnas Collection">
+                        <img loading="lazy" decoding="async" src="assets/images/optimized/marcas/img-marcas-03.webp" width="720" height="900" alt="Regnas Collection">
                     </div>
                     <div class="brand-info">
                         <h4 class="brand-name">Regnas Collection</h4>
                         <p class="brand-description">Canetas tinteiro elegantes feitas com madeira nobre para CEOs.</p>
                     </div>
                 </div>
-                <div class="brand-item" onclick="openCoverModal(this)" data-cover="assets/images/marcas/img-marcas-04.png">
+                <div class="brand-item" onclick="openCoverModal(this)" data-cover="assets/images/optimized/marcas/img-marcas-04.webp">
                     <div class="brand-image">
-                        <img src="assets/images/marcas/img-marcas-04.png" alt="Selva Dourada">
+                        <img loading="lazy" decoding="async" src="assets/images/optimized/marcas/img-marcas-04.webp" width="720" height="900" alt="Selva Dourada">
                     </div>
                     <div class="brand-info">
                         <h4 class="brand-name">Selva Dourada</h4>
                         <p class="brand-description">Joias inspiradas na natureza, cheias de autenticidade e elegância.</p>
                     </div>
                 </div>
-                <div class="brand-item" onclick="openCoverModal(this)" data-cover="assets/images/marcas/img-marcas-05.png">
+                <div class="brand-item" onclick="openCoverModal(this)" data-cover="assets/images/optimized/marcas/img-marcas-05.webp">
                     <div class="brand-image">
-                        <img src="assets/images/marcas/img-marcas-05.png" alt="Essential Vitae Spa">
+                        <img loading="lazy" decoding="async" src="assets/images/optimized/marcas/img-marcas-05.webp" width="720" height="900" alt="Essential Vitae Spa">
                     </div>
                     <div class="brand-info">
                         <h4 class="brand-name">Essential Vitae Spa</h4>
                         <p class="brand-description">Óleos essenciais que unem tradição botânica e tecnologia sustentável.</p>
                     </div>
                 </div>
-                <div class="brand-item" onclick="openCoverModal(this)" data-cover="assets/images/marcas/img-marcas-06.png">
+                <div class="brand-item" onclick="openCoverModal(this)" data-cover="assets/images/optimized/marcas/img-marcas-06.webp">
                     <div class="brand-image">
-                        <img src="assets/images/marcas/img-marcas-06.png" alt="VerdiLog">
+                        <img loading="lazy" decoding="async" src="assets/images/optimized/marcas/img-marcas-06.webp" width="720" height="900" alt="VerdiLog">
                     </div>
                     <div class="brand-info">
                         <h4 class="brand-name">VerdiLog</h4>
@@ -160,7 +157,7 @@
         <div class="modal-overlay"></div>
         <div class="modal-content">
             <button class="modal-close" aria-label="Fechar">&times;</button>
-            <img src="assets/images/volumes/img-volumes-01.png" alt="Capa" class="modal-image">
+            <img loading="lazy" decoding="async" src="assets/images/optimized/volumes/img-volumes-01.webp" width="640" height="800" alt="Capa" class="modal-image">
         </div>
     </div>
 
@@ -169,7 +166,7 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <div class="footer-logo-container">
-                        <img src="assets/images/institucional/img-institucional-02.png" alt="Editora Ortz" class="footer-logo-icon" loading="lazy">
+                        <img src="assets/images/institucional/img-institucional-02.png" width="300" height="300" alt="Editora Ortz" class="footer-logo-icon" loading="lazy" decoding="async">
                         <span class="footer-logo-text">Editora Ortz</span>
                     </div>
                     <p class="footer-tagline">Onde a essência natural encontra a excelência editorial.</p>
@@ -199,9 +196,9 @@
         </div>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="assets/js/js.global.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <script src="assets/js/js.global.js" defer></script>
     <script>
         // Script do modal local (necessário para esta página)
         const CoverModal = {
