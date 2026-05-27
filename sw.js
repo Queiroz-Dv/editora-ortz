@@ -1,52 +1,74 @@
-// ============================================================
-// Service Worker - Editora Ortz PWA
-// Estratégia de Cache Dinâmico:
-//   - HTML (páginas): Network First → fallback para cache
-//   - Assets estáticos (CSS, JS, fontes, imagens): Cache First
-//   - CDN externo (GSAP, Google Fonts): Stale-While-Revalidate
-// ============================================================
+﻿// Service Worker - Editora Ortz PWA
+// Cache: HTML Network First, assets locais Cache First, CDN Stale-While-Revalidate
 
-const CACHE_VERSION = 'v1.0.0';
+const CACHE_VERSION = 'v1.1.0';
 const STATIC_CACHE  = `ortz-static-${CACHE_VERSION}`;
 const DYNAMIC_CACHE = `ortz-dynamic-${CACHE_VERSION}`;
 const IMAGE_CACHE   = `ortz-images-${CACHE_VERSION}`;
 
-// Recursos essenciais para pré-cache no install (shell da aplicação)
+// Recursos essenciais para prÃ©-cache no install (shell da aplicaÃ§Ã£o)
 const PRECACHE_ASSETS = [
   '/',
   '/index.html',
   '/sobre.html',
   '/volumes.html',
   '/marcas.html',
-  '/styles.css',
-  '/mobile.css',
-  '/script.js',
+  '/assets/css/site.css',
+  '/assets/css/responsive.css',
+  '/assets/js/js.global.js',
   '/manifest.json',
-  '/public/images/design-mode/Logo-B.png',
-  '/public/images/design-mode/Logo-W.png',
-  '/public/images/design-mode/EditoraOrtz-B.png',
-  '/public/images/design-mode/EditoraOrtz-W.png',
-  '/public/images/design-mode/hero-index-bg.webp',
+  '/assets/images/institucional/img-institucional-01.png',
+  '/assets/images/institucional/img-institucional-02.png',
+  '/assets/images/contato/img-contato-01.png',
+  '/assets/images/contato/img-contato-02.png',
+  '/assets/images/hero/img-hero-01.webp',
+  '/assets/images/servicos/img-servicos-01.png',
+  '/assets/images/servicos/img-servicos-02.png',
+  '/assets/images/servicos/img-servicos-03.png',
+  '/assets/images/volumes/img-volumes-01.png',
+  '/assets/images/volumes/img-volumes-02.png',
+  '/assets/images/volumes/img-volumes-03.png',
+  '/assets/images/volumes/img-volumes-04.png',
+  '/assets/images/volumes/img-volumes-05.png',
+  '/assets/images/volumes/img-volumes-06.png',
+  '/assets/images/volumes/img-volumes-07.png',
+  '/assets/images/volumes/img-volumes-08.png',
+  '/assets/images/volumes/img-volumes-09.png',
+  '/assets/images/volumes/img-volumes-10.png',
+  '/assets/images/marcas/img-marcas-01-logo.png',
+  '/assets/images/marcas/img-marcas-01.png',
+  '/assets/images/marcas/img-marcas-02-logo.png',
+  '/assets/images/marcas/img-marcas-02.png',
+  '/assets/images/marcas/img-marcas-03-logo.png',
+  '/assets/images/marcas/img-marcas-03.png',
+  '/assets/images/marcas/img-marcas-04-logo.png',
+  '/assets/images/marcas/img-marcas-04.png',
+  '/assets/images/marcas/img-marcas-05-logo.png',
+  '/assets/images/marcas/img-marcas-05.png',
+  '/assets/images/marcas/img-marcas-06-logo.png',
+  '/assets/images/marcas/img-marcas-06.png',
+  '/assets/icons/icon-192x192.png',
+  '/assets/icons/icon-512x512.png',
 ];
 
-// Limite de entradas em caches dinâmicos
+// Limite de entradas em caches dinÃ¢micos
 const CACHE_LIMITS = {
   [DYNAMIC_CACHE]: 50,
   [IMAGE_CACHE]:   30,
 };
 
-// ─── Instalação ──────────────────────────────────────────────
+// InstalaÃ§Ã£o
 self.addEventListener('install', (event) => {
   console.log('[SW] Instalando Service Worker...');
   event.waitUntil(
     caches.open(STATIC_CACHE)
       .then((cache) => {
-        console.log('[SW] Pré-cache dos assets essenciais');
-        // Adiciona individualmente para não abortar tudo se um falhar
+        console.log('[SW] PrÃ©-cache dos assets essenciais');
+        // Adiciona individualmente para nÃ£o abortar tudo se um falhar
         return Promise.allSettled(
           PRECACHE_ASSETS.map((url) =>
             cache.add(url).catch((err) =>
-              console.warn(`[SW] Falha no pré-cache: ${url}`, err)
+              console.warn(`[SW] Falha no prÃ©-cache: ${url}`, err)
             )
           )
         );
@@ -55,7 +77,7 @@ self.addEventListener('install', (event) => {
   );
 });
 
-// ─── Ativação ────────────────────────────────────────────────
+// AtivaÃ§Ã£o
 self.addEventListener('activate', (event) => {
   console.log('[SW] Ativando Service Worker...');
   const currentCaches = [STATIC_CACHE, DYNAMIC_CACHE, IMAGE_CACHE];
@@ -76,48 +98,43 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// ─── Interceptação de Requisições ────────────────────────────
+// InterceptaÃ§Ã£o de requisiÃ§Ãµes
 self.addEventListener('fetch', (event) => {
   const { request } = event;
   const url = new URL(request.url);
 
-  // Ignora requisições não-GET e chrome-extension://
+  // Ignora requisiÃ§Ãµes nÃ£o-GET e chrome-extension://
   if (request.method !== 'GET') return;
   if (!url.protocol.startsWith('http')) return;
-
-  // ── 1. Páginas HTML → Network First (sempre tenta buscar a versão mais recente)
+  // 1. PÃ¡ginas HTML: Network First
   if (request.headers.get('Accept')?.includes('text/html')) {
     event.respondWith(networkFirstStrategy(request, DYNAMIC_CACHE));
     return;
   }
-
-  // ── 2. Imagens locais → Cache First com fallback de rede
+  // 2. Imagens locais: Cache First com fallback de rede
   if (url.hostname === self.location.hostname && isImageRequest(request)) {
     event.respondWith(cacheFirstStrategy(request, IMAGE_CACHE));
     return;
   }
-
-  // ── 3. Assets do CDN (GSAP, Google Fonts) → Stale-While-Revalidate
+  // 3. Assets do CDN: Stale-While-Revalidate
   if (isCdnRequest(url)) {
     event.respondWith(staleWhileRevalidate(request, DYNAMIC_CACHE));
     return;
   }
-
-  // ── 4. Assets estáticos locais (CSS, JS, fontes) → Cache First
+  // 4. Assets estÃ¡ticos locais: Cache First
   if (url.hostname === self.location.hostname) {
     event.respondWith(cacheFirstStrategy(request, STATIC_CACHE));
     return;
   }
-
-  // ── 5. Demais requisições externas → Stale-While-Revalidate
+  // 5. Demais requisiÃ§Ãµes externas: Stale-While-Revalidate
   event.respondWith(staleWhileRevalidate(request, DYNAMIC_CACHE));
 });
 
-// ─── Estratégias de Cache ─────────────────────────────────────
+// EstratÃ©gias de cache
 
 /**
  * Network First: tenta a rede, usa cache se a rede falhar.
- * Ideal para páginas HTML (sempre a versão mais fresca).
+ * Ideal para pÃ¡ginas HTML (sempre a versÃ£o mais fresca).
  */
 async function networkFirstStrategy(request, cacheName) {
   const cache = await caches.open(cacheName);
@@ -131,14 +148,14 @@ async function networkFirstStrategy(request, cacheName) {
   } catch {
     const cached = await cache.match(request);
     if (cached) return cached;
-    // Página offline de fallback
+    // PÃ¡gina offline de fallback
     return offlineFallback();
   }
 }
 
 /**
  * Cache First: serve do cache; atualiza o cache em background se a entrada expirar.
- * Ideal para assets estáticos que mudam raramente.
+ * Ideal para assets estÃ¡ticos que mudam raramente.
  */
 async function cacheFirstStrategy(request, cacheName) {
   const cache = await caches.open(cacheName);
@@ -153,7 +170,7 @@ async function cacheFirstStrategy(request, cacheName) {
     }
     return networkResponse;
   } catch (err) {
-    console.warn('[SW] Recurso indisponível e sem cache:', request.url);
+    console.warn('[SW] Recurso indisponÃ­vel e sem cache:', request.url);
     throw err;
   }
 }
@@ -179,7 +196,7 @@ async function staleWhileRevalidate(request, cacheName) {
   return cached ?? fetchPromise;
 }
 
-// ─── Utilidades ───────────────────────────────────────────────
+// Utilidades
 
 function isImageRequest(request) {
   return /\.(png|jpg|jpeg|webp|gif|svg|ico)(\?.*)?$/.test(request.url);
@@ -195,7 +212,7 @@ function isCdnRequest(url) {
 }
 
 /**
- * Limita o número de entradas em um cache para evitar crescimento ilimitado.
+ * Limita o nÃºmero de entradas em um cache para evitar crescimento ilimitado.
  */
 async function trimCache(cacheName, maxItems) {
   const cache = await caches.open(cacheName);
@@ -207,7 +224,7 @@ async function trimCache(cacheName, maxItems) {
 }
 
 /**
- * Página de fallback quando offline e sem cache disponível.
+ * PÃ¡gina de fallback quando offline e sem cache disponÃ­vel.
  */
 function offlineFallback() {
   return new Response(
@@ -216,7 +233,7 @@ function offlineFallback() {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sem Conexão - Editora Ortz</title>
+  <title>Sem ConexÃ£o - Editora Ortz</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -276,8 +293,8 @@ function offlineFallback() {
     <circle cx="12" cy="12" r="3"/>
     <line x1="4.93" y1="4.93" x2="19.07" y2="19.07" stroke="#c0392b"/>
   </svg>
-  <h1>Sem Conexão</h1>
-  <p>Você está offline. Verifique sua conexão com a internet e tente novamente.</p>
+  <h1>Sem ConexÃ£o</h1>
+  <p>VocÃª estÃ¡ offline. Verifique sua conexÃ£o com a internet e tente novamente.</p>
   <button onclick="window.location.reload()">Tentar Novamente</button>
 </body>
 </html>`,

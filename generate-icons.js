@@ -6,8 +6,8 @@ const sharp = require('sharp');
 const path = require('path');
 const fs = require('fs');
 
-const SOURCE = path.join(__dirname, 'public/images/design-mode/Logo-W.png');
-const OUTPUT_DIR = path.join(__dirname, 'public/icons');
+const SOURCE = path.join(__dirname, 'assets/images/institucional/img-institucional-02.png');
+const OUTPUT_DIR = path.join(__dirname, 'assets/icons');
 const SIZES = [72, 96, 128, 144, 152, 192, 384, 512];
 
 if (!fs.existsSync(OUTPUT_DIR)) {

@@ -1,0 +1,164 @@
+/* ============================================================
+   RESPONSIVO | assets/css/responsive.css
+   Media queries — Editora Ortz (todos os módulos)
+   ============================================================ */
+
+/* === TABLET (≤ 1024px) === */
+@media (max-width: 1024px) {
+
+  /* Navbar */
+  .nav-menu { gap: 1.5rem; }
+  .logo-text { font-size: 1.35rem; }
+
+  /* Valores */
+  .values-grid { grid-template-columns: 1fr; }
+
+  /* Contato */
+  .contact-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  /* QRZ */
+  .qrz-content { grid-template-columns: 1fr; text-align: center; }
+  .qrz-logo-container { justify-content: center; }
+
+  /* Footer */
+  .footer-content { grid-template-columns: 1fr; gap: 3rem; }
+
+  /* Protocol */
+  .protocol-card {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    position: relative;
+    top: auto !important;
+  }
+  .protocol-visual { min-height: 280px; }
+
+  /* Manifesto */
+  .manifesto-grid { grid-template-columns: 1fr; }
+  .manifesto-statement { font-size: clamp(2.4rem, 6vw, 4.5rem); }
+}
+
+/* === TABLET/MOBILE (≤ 900px) === */
+@media (max-width: 900px) {
+
+  /* Navbar mobile */
+  .nav-menu {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 100px;
+    left: 1rem;
+    width: calc(100% - 2rem);
+    background-color: var(--color-bg);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    height: calc(100vh - 120px);
+    padding: 3rem 2rem;
+    border-radius: 2rem;
+    transform: translateX(110%);
+    transition: var(--transition);
+    z-index: 999;
+  }
+
+  .nav-menu.active { transform: translateX(0); }
+
+  .nav-menu a {
+    font-size: 1.2rem;
+    padding: 1rem 0;
+  }
+
+  .menu-toggle {
+    display: flex;
+    z-index: 1001;
+  }
+
+  .theme-toggle { margin-left: auto; }
+
+  /* Features grid */
+  .ef-grid { grid-template-columns: 1fr; }
+
+  /* Contact */
+  .contact-card { padding: 2.5rem; }
+
+  /* Manifesto */
+  .manifesto { margin: 1rem; border-radius: 2rem; }
+}
+
+/* === MOBILE (≤ 600px) === */
+@media (max-width: 600px) {
+
+  /* Base */
+  .container, .container-wide { padding: 0 1rem; }
+  section { padding: 5rem 0; }
+
+  /* Navbar */
+  .nav-container { padding: 0 1rem; }
+  .nav { top: 0; width: 100%; border-radius: 0; }
+  .logo-text { font-size: 1.1rem; }
+  .logo-icon { width: 60px; height: 60px; }
+  .nav-menu { top: 90px; height: calc(100vh - 90px); }
+
+  /* Hero */
+  .hero-title { font-size: 2.2rem; }
+  .hero-subtitle { font-size: 1rem; }
+  .hero-cta { flex-direction: column; align-items: center; }
+  .hero-cta .btn { width: 100%; text-align: center; }
+
+  /* Botões */
+  .btn { padding: 0.82rem 1.8rem; font-size: 0.9rem; }
+
+  /* Seções */
+  .section-title { font-size: 2rem; }
+  .section-description { font-size: 1rem; }
+
+  /* Features */
+  .ef-card { padding: 2rem 1.5rem; }
+  .ef-visual { min-height: 130px; }
+
+  /* Protocol */
+  .protocol-stack { width: calc(100% - 1rem); }
+  .protocol-card {
+    border-radius: 2rem;
+    padding: 2rem 1.25rem;
+  }
+  .protocol-visual { min-height: 200px; border-radius: 1.5rem; }
+
+  /* Manifesto */
+  .manifesto { margin: 0.75rem; border-radius: 1.5rem; }
+  .manifesto-statement { font-size: 2.4rem; line-height: 1; }
+
+  /* Volumes */
+  .work-buttons { flex-direction: column; align-items: center; }
+  .work-preview-container { display: none; }
+
+  /* Timeline */
+  .timeline-line { left: 18px; }
+  .timeline-item,
+  .timeline-item:nth-child(even) {
+    flex-direction: row;
+    padding-left: 50px;
+  }
+  .timeline-dot { left: 8px; }
+  .timeline-content { width: 100%; text-align: left !important; }
+  .timeline-title { font-size: 1.4rem; }
+
+  /* Valores */
+  .values-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .mission-statement { padding: 2.5rem 1.5rem; }
+
+  /* Contato */
+  .contact-card { padding: 2rem 1.5rem; }
+  .contact-title { font-size: 1.8rem; }
+
+  /* Start */
+  .start-panel { border-radius: 2rem; padding: 2.5rem 1.5rem; }
+  .start-panel .section-title { font-size: 1.85rem; }
+
+  /* Footer */
+  .footer { border-radius: 2.5rem 2.5rem 0 0; padding-top: 3.5rem; }
+  .footer-content { gap: 2.5rem; }
+  .footer-logo-container .footer-logo-icon { width: 60px; height: 60px; }
+  .footer-nav-links { display: none; }
+  .footer-conglomerado-links .footer-heading { display: none; }
+}

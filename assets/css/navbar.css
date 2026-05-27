@@ -1,0 +1,210 @@
+/* ============================================================
+   NAVBAR | assets/css/navbar.css
+   Navbar flutuante tipo island/pill — Editora Ortz
+   ============================================================ */
+
+.nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border-bottom: 1px solid transparent;
+  border-radius: 0;
+  transform: none;
+  background-color: rgba(255, 255, 255, 0.04);
+  box-shadow: none;
+  padding: 1rem 0;
+  z-index: 1000;
+  transition: var(--transition);
+}
+
+.nav:hover,
+.nav.scrolled {
+  background-color: rgba(255, 255, 255, 0.95);
+  border-bottom-color: rgba(106, 23, 23, 0.12);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 4px 24px rgba(17, 15, 17, 0.06);
+  padding: 0.75rem 0;
+}
+
+body.dark-mode .nav {
+  background-color: rgba(20, 18, 18, 0.04);
+}
+
+body.dark-mode .nav:hover,
+body.dark-mode .nav.scrolled {
+  background-color: rgba(20, 18, 18, 0.95);
+  border-bottom-color: rgba(171, 159, 151, 0.2);
+}
+
+/* Ícone logo / texto — branco quando nav transparente no hero */
+.nav:not(.scrolled):not(:hover) .logo-text,
+.nav:not(.scrolled):not(:hover) .nav-menu a,
+.nav:not(.scrolled):not(:hover) .theme-toggle {
+  color: #ffffff;
+}
+
+.nav:not(.scrolled):not(:hover) .nav-logo .logo-light {
+  opacity: 0;
+  position: absolute;
+}
+
+.nav:not(.scrolled):not(:hover) .nav-logo .logo-dark {
+  opacity: 1;
+  position: static;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.nav-logo-link { text-decoration: none; }
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  position: relative;
+}
+
+.logo-icon {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  transition: opacity 0.3s ease;
+}
+
+.nav-logo .logo-light {
+  opacity: 1;
+  position: static;
+  transition: opacity 0.3s ease;
+}
+.nav-logo .logo-dark {
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: opacity 0.3s ease;
+}
+body.dark-mode .nav-logo .logo-light {
+  opacity: 0;
+  position: absolute;
+}
+body.dark-mode .nav-logo .logo-dark {
+  opacity: 1;
+  position: static;
+}
+
+.logo-text {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--color-text);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+/* Menu */
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 2.5rem;
+}
+
+.nav-menu a {
+  color: var(--color-text);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  transition: var(--transition);
+  position: relative;
+  display: inline-block;
+  padding: 0.4rem 0;
+}
+
+.nav-menu a::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background-color: var(--color-primary);
+  transition: width 0.35s ease;
+}
+
+.nav-menu a:hover::before,
+.nav-menu a.nav-active::before {
+  width: 100%;
+}
+
+.nav-menu a.nav-active { color: var(--color-primary); }
+
+/* Theme Toggle */
+.theme-toggle {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  transition: var(--transition);
+  margin-left: 0.5rem;
+}
+
+.theme-toggle:hover {
+  background-color: var(--color-light);
+}
+
+.theme-toggle .sun-icon,
+.theme-toggle .moon-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.theme-toggle .sun-icon  { display: block; }
+.theme-toggle .moon-icon { display: none; }
+body.dark-mode .theme-toggle .sun-icon  { display: none; }
+body.dark-mode .theme-toggle .moon-icon { display: block; }
+
+/* Hamburger */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  margin-left: 1rem;
+}
+
+.menu-toggle span {
+  width: 24px;
+  height: 2px;
+  background-color: var(--color-text);
+  transition: var(--transition);
+  display: block;
+}
+
+/* Hamburger → X */
+.menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.menu-toggle.active span:nth-child(2) { opacity: 0; }
+.menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}

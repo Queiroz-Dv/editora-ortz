@@ -3,47 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editora Ortz - Onde Natureza Encontra Negócios</title>
+    <title>Editora Ortz — Onde Natureza Encontra Negócios</title>
 
     <!-- PWA: Manifest & Tema -->
     <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#8B7355">
+    <meta name="theme-color" content="#6a1717">
     <meta name="mobile-web-app-capable" content="yes">
 
     <!-- PWA: iOS (Apple) -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Editora Ortz">
-    <link rel="apple-touch-icon" href="public/icons/icon-192x192.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="public/icons/icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="public/icons/icon-144x144.png">
+    <link rel="apple-touch-icon" href="assets/icons/icon-192x192.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/icons/icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/icons/icon-144x144.png">
 
     <!-- SEO & Open Graph -->
     <meta name="description" content="Projetos editoriais que unem a simplicidade da natureza com a sofisticação do mundo corporativo.">
-    <meta property="og:title" content="Editora Ortz - Onde Natureza Encontra Negócios">
-    <meta property="og:description" content="Projetos editoriais que unem a simplicidade da natureza com a sofisticação do mundo corporativo.">
+    <meta name="keywords" content="Editora Ortz, projetos editoriais, branded content, livros, volumes, natureza, negócios, Rio de Janeiro">
+    <meta name="robots" content="index, follow">
     <meta property="og:type" content="website">
+    <meta property="og:title" content="Editora Ortz — Onde Natureza Encontra Negócios">
+    <meta property="og:description" content="Projetos editoriais que unem a simplicidade da natureza com a sofisticação do mundo corporativo.">
+    <meta property="og:image" content="assets/images/institucional/img-institucional-03.jpg">
 
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="mobile.css">
+    <!-- Google Fonts — preconnect para performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- CSS Modulares -->
+    <link rel="stylesheet" href="assets/css/site.css">
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/css/hero.css">
+    <link rel="stylesheet" href="assets/css/process.css">
+    <link rel="stylesheet" href="assets/css/features.css">
+    <link rel="stylesheet" href="assets/css/services.css">
+    <link rel="stylesheet" href="assets/css/volumes.css">
+    <link rel="stylesheet" href="assets/css/brands.css">
+    <link rel="stylesheet" href="assets/css/contact.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
 </head>
 <body>
 
-    <nav class="nav">
+    <!-- NAVBAR -->
+    <nav class="nav" role="navigation" aria-label="Navegação principal">
         <div class="nav-container">
             <a href="index.html" class="nav-logo-link">
                 <div class="nav-logo">
-                    <img src="public/images/design-mode/Logo-B.png" alt="Editora Ortz" class="logo-icon logo-light">
-                    <img src="public/images/design-mode/Logo-W.png" alt="Editora Ortz" class="logo-icon logo-dark">    
-                    <span class="logo-text">EDITORA ORTZ</span>                
+                    <img src="assets/images/institucional/img-institucional-01.png" alt="Editora Ortz" class="logo-icon logo-light">
+                    <img src="assets/images/institucional/img-institucional-02.png" alt="Editora Ortz" class="logo-icon logo-dark">
+                    <span class="logo-text">EDITORA ORTZ</span>
                 </div>
             </a>
-            
-            <ul class="nav-menu">
+
+            <ul class="nav-menu" id="navMenu">
                 <li><a href="sobre.html">Sobre</a></li>
                 <li><a href="#servicos">Serviços</a></li>
                 <li><a href="#volumes">Volumes</a></li>
@@ -51,8 +66,8 @@
                 <li><a href="#contato">Contato</a></li>
             </ul>
 
-            <button class="theme-toggle" aria-label="Toggle dark mode">
-                <svg class="sun-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <button class="theme-toggle" aria-label="Alternar modo escuro/claro">
+                <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <circle cx="12" cy="12" r="5"/>
                     <line x1="12" y1="1" x2="12" y2="3"/>
                     <line x1="12" y1="21" x2="12" y2="23"/>
@@ -63,12 +78,12 @@
                     <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
                     <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
                 </svg>
-                <svg class="moon-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
                 </svg>
             </button>
-            
-            <button class="menu-toggle" aria-label="Menu">
+
+            <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navMenu">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -76,7 +91,10 @@
         </div>
     </nav>
 
-    <section class="hero">
+    <main id="main-content">
+
+    <!-- HERO -->
+    <section class="hero" id="hero">
         <div class="container">
             <div class="hero-grid">
                 <div class="hero-content">
@@ -89,13 +107,217 @@
                 </div>
             </div>
         </div>
-        <div class="scroll-indicator">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="scroll-icon">
+        <div class="scroll-indicator" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="scroll-icon">
                 <path d="M12 5v14M19 12l-7 7-7-7"/>
             </svg>
         </div>
     </section>
 
+
+    <!-- PROCESSO EDITORIAL -->
+    <section class="process" id="protocolo">
+
+        <!-- Âncora superior: título flutuante -->
+        <div class="process-intro">
+            <div class="container">
+                <span class="section-label">Processo</span>
+                <h2 class="process-title">Três gestos.<br>Uma obra.</h2>
+                <p class="process-sub">Do silêncio da escuta à permanência do objeto, assim nasce cada publicação da Editora Ortz.</p>
+            </div>
+        </div>
+
+        <!-- Etapa 01 -->
+        <div class="process-step bauhaus-layout" data-step="01">
+            <div class="process-step__image-wrapper">
+                <div class="bauhaus-block bauhaus-block--1" aria-hidden="true"></div>
+                <div class="bauhaus-block bauhaus-block--1b" aria-hidden="true"></div>
+                <div class="process-step__image">
+                    <img
+                        src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=900&q=80&auto=format&fit=crop"
+                        alt="Pesquisa editorial, livros abertos em mesa de trabalho"
+                        loading="lazy"
+                    >
+                    <div class="process-step__overlay"></div>
+                </div>
+                <div class="bauhaus-block bauhaus-block--front bauhaus-block--1c" aria-hidden="true"></div>
+            </div>
+            <div class="process-step__body bookmark-card">
+                <p class="process-step__tag">Pesquisa</p>
+                <div class="process-step__title-group">
+                    <div class="process-step__graphic" aria-hidden="true">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                            <circle cx="12" cy="12" r="10" class="svg-spin-anim" stroke-dasharray="8 4" />
+                            <circle cx="12" cy="12" r="4" class="svg-pulse-anim" fill="currentColor" fill-opacity="0.2" />
+                            <path d="M12 2v4M12 18v4M2 12h4M18 12h4" class="svg-line-anim" />
+                        </svg>
+                    </div>
+                    <h3 class="process-step__heading">Primeiro, escutamos.</h3>
+                </div>
+                <p class="process-step__text">Antes de qualquer palavra escrita, mergulhamos no universo do projeto. Mapeamos intenção, território cultural e o que o mercado ainda não ousou dizer. A obra começa aqui, em silêncio.</p>
+                <ul class="process-step__pillars">
+                    <li>Imersão no contexto da marca</li>
+                    <li>Análise de referências editoriais</li>
+                    <li>Definição do tom e registro da voz</li>
+                </ul>
+                <span class="process-step__num" aria-hidden="true">01</span>
+                <div class="bookmark-tail"></div>
+            </div>
+        </div>
+
+        <!-- Etapa 02 -->
+        <div class="process-step bauhaus-layout bauhaus-layout--alt" data-step="02">
+            <div class="process-step__image-wrapper">
+                <div class="bauhaus-block bauhaus-block--2" aria-hidden="true"></div>
+                <div class="bauhaus-block bauhaus-block--2b" aria-hidden="true"></div>
+                <div class="process-step__image">
+                    <img
+                        src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=900&q=80&auto=format&fit=crop"
+                        alt="Edição, mãos sobre folhas manuscritas em mesa de trabalho editorial"
+                        loading="lazy"
+                    >
+                    <div class="process-step__overlay"></div>
+                </div>
+                <div class="bauhaus-block bauhaus-block--front bauhaus-block--2c" aria-hidden="true"></div>
+            </div>
+            <div class="process-step__body bookmark-card">
+                <p class="process-step__tag">Edição</p>
+                <div class="process-step__title-group">
+                    <div class="process-step__graphic" aria-hidden="true">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                            <rect x="4" y="4" width="16" height="16" rx="2" class="svg-draw-anim" />
+                            <path d="M4 10h16M10 4v16" class="svg-line-anim" />
+                            <rect x="8" y="8" width="8" height="8" class="svg-pulse-anim" fill="currentColor" fill-opacity="0.15" />
+                        </svg>
+                    </div>
+                    <h3 class="process-step__heading">Depois, construímos.</h3>
+                </div>
+                <p class="process-step__text">Texto, imagem e espaço em branco são elementos com igual peso. Cada página é pensada como uma composição onde o ritmo de leitura é tão importante quanto o conteúdo.</p>
+                <ul class="process-step__pillars">
+                    <li>Estrutura narrativa e curadoria de conteúdo</li>
+                    <li>Projeto gráfico e hierarquia tipográfica</li>
+                    <li>Revisão editorial com atenção ao detalhe</li>
+                </ul>
+                <span class="process-step__num" aria-hidden="true">02</span>
+                <div class="bookmark-tail"></div>
+            </div>
+        </div>
+
+        <!-- Etapa 03 -->
+        <div class="process-step bauhaus-layout" data-step="03">
+            <div class="process-step__image-wrapper">
+                <div class="bauhaus-block bauhaus-block--3" aria-hidden="true"></div>
+                <div class="bauhaus-block bauhaus-block--3b" aria-hidden="true"></div>
+                <div class="process-step__image">
+                    <img
+                        src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=900&q=80&auto=format&fit=crop"
+                        alt="Publicação, livros físicos em livraria com luz natural"
+                        loading="lazy"
+                    >
+                    <div class="process-step__overlay"></div>
+                </div>
+                <div class="bauhaus-block bauhaus-block--front bauhaus-block--3c" aria-hidden="true"></div>
+            </div>
+            <div class="process-step__body bookmark-card">
+                <p class="process-step__tag">Publicação</p>
+                <div class="process-step__title-group">
+                    <div class="process-step__graphic" aria-hidden="true">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                            <path d="M2 7l10-5 10 5-10 5z" class="svg-float-anim" fill="currentColor" fill-opacity="0.1" />
+                            <path d="M2 12l10 5 10-5" class="svg-draw-anim" />
+                            <path d="M2 17l10 5 10-5" class="svg-line-anim" />
+                            <path d="M12 2v10" class="svg-pulse-anim" />
+                        </svg>
+                    </div>
+                    <h3 class="process-step__heading">Por fim, lançamos ao mundo.</h3>
+                </div>
+                <p class="process-step__text">A obra sai do ateliê e ganha vida própria em estantes, eventos, vitrines e plataformas digitais. Garantimos que o objeto chegue intacto, com a identidade e a força do que foi construído.</p>
+                <ul class="process-step__pillars">
+                    <li>Produção gráfica para impressão</li>
+                    <li>Versão digital e distribuição</li>
+                    <li>Estratégia de lançamento editorial</li>
+                </ul>
+                <span class="process-step__num" aria-hidden="true">03</span>
+                <div class="bookmark-tail"></div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- DIFERENCIAIS EDITORIAIS (nova seção) -->
+    <section class="editorial-features" id="diferenciais">
+        <div class="container">
+            <div class="section-header centered">
+                <span class="section-label">Nossos Diferenciais</span>
+                <h2 class="section-title">O que nos move</h2>
+                <p class="section-description">Uma editora que entende que cada obra tem sua própria voz, e que nossa função é amplificá-la com método, cuidado e permanência.</p>
+            </div>
+
+            <div class="ef-grid">
+
+                <!-- Card 1: Curadoria Editorial -->
+                <div class="ef-card">
+                    <h3>Curadoria com profundidade</h3>
+                    <p>Não publicamos apenas textos, construímos objetos com sentido. Cada projeto passa por leitura cuidadosa, pesquisa de território e projeto gráfico intencional.</p>
+                    <div class="ef-visual ef-visual--book" aria-hidden="true">
+                        <div class="book">
+                            <div class="book-cover"></div>
+                            <div class="book-page page-1"></div>
+                            <div class="book-page page-2"></div>
+                            <div class="book-page page-3"></div>
+                            <div class="book-spine"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Conteúdo para Marcas -->
+                <div class="ef-card">
+                    <h3>Narrativas de marca autênticas</h3>
+                    <p>Branded content que vai além do institucional. Criamos volumes e publicações que criam pertencimento e fortalecem identidades corporativas com elegância.</p>
+                    <div class="ef-visual ef-visual--type" aria-hidden="true">
+                        <div class="type-lines">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span class="accent-line"></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Publicação Física e Digital -->
+                <div class="ef-card">
+                    <h3>Presença física e digital</h3>
+                    <p>Do volume impresso ao acervo digital, preparamos cada obra para circular com integridade em qualquer formato, sem perder a essência do projeto original.</p>
+                    <div class="ef-visual ef-visual--circulation" aria-hidden="true">
+                        <div class="circ-book"></div>
+                        <div class="circ-wave">
+                            <svg viewBox="0 0 200 60" fill="none">
+                                <path d="M0 30 C40 10, 80 50, 120 30 S160 10, 200 30"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4: Obras com Raiz -->
+                <div class="ef-card">
+                    <h3>Obras com raiz e permanência</h3>
+                    <p>Trabalhamos com tempo, método e atenção material. Cada publicação é pensada para durar, como um elemento da natureza que cresce com propósito.</p>
+                    <div class="ef-visual ef-visual--nature" aria-hidden="true">
+                        <div class="nature-stem"></div>
+                        <div class="nature-leaf leaf-1"></div>
+                        <div class="nature-leaf leaf-2"></div>
+                        <div class="nature-leaf leaf-3"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVIÇOS EDITORIAIS -->
     <section class="services" id="servicos">
         <div class="container">
             <div class="section-header centered">
@@ -103,11 +325,11 @@
                 <h2 class="section-title">Serviços Editoriais</h2>
                 <p class="section-description">Criamos projetos editoriais completos, desde a concepção até a publicação.</p>
             </div>
-            
+
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-image">
-                        <img src="public/images/design-mode/Capa-MockupVolumes.png" alt="Publicação de Volumes">
+                        <img src="assets/images/servicos/img-servicos-01.png" alt="Publicação de Volumes" loading="lazy">
                     </div>
                     <div class="service-info">
                         <h3 class="service-title">Publicação de Volumes</h3>
@@ -116,7 +338,7 @@
                 </div>
                 <div class="service-card">
                     <div class="service-image">
-                        <img src="public/images/design-mode/Capa-BrandedContent.png" alt="Conteúdo para Marcas">
+                        <img src="assets/images/servicos/img-servicos-02.png" alt="Conteúdo para Marcas" loading="lazy">
                     </div>
                     <div class="service-info">
                         <h3 class="service-title">Conteúdo para Marcas</h3>
@@ -125,7 +347,7 @@
                 </div>
                 <div class="service-card">
                     <div class="service-image">
-                        <img src="public/images/design-mode/Capa-Consultoria.png" alt="Consultoria Criativa">
+                        <img src="assets/images/servicos/img-servicos-03.png" alt="Consultoria Criativa" loading="lazy">
                     </div>
                     <div class="service-info">
                         <h3 class="service-title">Consultoria Criativa</h3>
@@ -135,35 +357,37 @@
             </div>
         </div>
     </section>
-    
-   <section class="our-work" id="volumes">
+
+    <!-- VOLUMES PUBLICADOS -->
+    <section class="our-work" id="volumes">
         <div class="container">
             <div class="section-header centered">
                 <span class="section-label">Nosso Portfólio</span>
                 <h2 class="section-title">Volumes Publicados</h2>
                 <p class="section-description">Explore nossos volumes publicados e os projetos que criamos para marcas.</p>
             </div>
-            
+
             <div class="work-buttons">
                 <a href="volumes.html" class="work-btn">
                     <span>Ver Todos os Volumes</span>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M5 12h14M12 5l7 7-7 7"/>
                     </svg>
                 </a>
-                </div>
+            </div>
 
             <div class="work-preview-container">
                 <div class="work-preview-images">
-                    <img src="public/images/design-mode/2022-ComerciosLocais.png" alt="Preview Capa 1">
-                    <img src="public/images/design-mode/2023-ZonaDeConforto.png" alt="Preview Capa 2">
-                    <img src="public/images/design-mode/2025-JornadaDoCliente.png" alt="Preview Capa 3">
-                    <img src="public/images/design-mode/2024-NegociosCriticos.png" alt="Preview Capa 4">
+                    <img src="assets/images/volumes/img-volumes-01.png" alt="Preview Capa 1" loading="lazy">
+                    <img src="assets/images/volumes/img-volumes-02.png" alt="Preview Capa 2" loading="lazy">
+                    <img src="assets/images/volumes/img-volumes-03.png" alt="Preview Capa 3" loading="lazy">
+                    <img src="assets/images/volumes/img-volumes-04.png" alt="Preview Capa 4" loading="lazy">
                 </div>
             </div>
-            </div>
+        </div>
     </section>
 
+    <!-- MARCAS PARCEIRAS -->
     <section class="brands" id="marcas">
         <div class="container">
             <div class="section-header centered">
@@ -171,23 +395,23 @@
                 <h2 class="section-title">Trabalhos para Marcas</h2>
                 <p class="section-description">Projetos editoriais que elevam marcas com narrativas autênticas.</p>
             </div>
-            
+
             <div class="brands-grid">
                 <div class="brand-card">
                     <div class="brand-card-image-container">
-                        <img src="public/images/design-mode/Logo-SerraSereno.png" alt="Logo Hotéis Serra e Sereno" class="brand-card-logo">
-                        <img src="public/images/design-mode/Capa-SerraSereno.png" alt="Trabalho Hotéis Serra e Sereno" class="brand-card-image">
+                        <img src="assets/images/marcas/img-marcas-01-logo.png" alt="Logo Hotéis Serra e Sereno" class="brand-card-logo" loading="lazy">
+                        <img src="assets/images/marcas/img-marcas-01.png" alt="Trabalho Hotéis Serra e Sereno" class="brand-card-image" loading="lazy">
                     </div>
                     <div class="brand-card-info">
                         <h4 class="brand-name">Hotéis Serra e Sereno</h4>
                         <p class="brand-description">Luxo rústico e o conforto da natureza brasileira.</p>
                     </div>
                 </div>
-                
+
                 <div class="brand-card">
                     <div class="brand-card-image-container">
-                        <img src="public/images/design-mode/Logo-CodiceBotanico.png" alt="Logo Códice Botânico" class="brand-card-logo">
-                        <img src="public/images/design-mode/Capa-CodiceBotanico.png" alt="Trabalho Códice Botânico" class="brand-card-image">
+                        <img src="assets/images/marcas/img-marcas-02-logo.png" alt="Logo Códice Botânico" class="brand-card-logo" loading="lazy">
+                        <img src="assets/images/marcas/img-marcas-02.png" alt="Trabalho Códice Botânico" class="brand-card-image" loading="lazy">
                     </div>
                     <div class="brand-card-info">
                         <h4 class="brand-name">Códice Botânico</h4>
@@ -197,8 +421,8 @@
 
                 <div class="brand-card">
                     <div class="brand-card-image-container">
-                        <img src="public/images/design-mode/Logo-Regnas.png" alt="Logo Regnas Collection" class="brand-card-logo">
-                        <img src="public/images/design-mode/Capa-Regnas.png" alt="Trabalho Regnas Collection" class="brand-card-image">
+                        <img src="assets/images/marcas/img-marcas-03-logo.png" alt="Logo Regnas Collection" class="brand-card-logo" loading="lazy">
+                        <img src="assets/images/marcas/img-marcas-03.png" alt="Trabalho Regnas Collection" class="brand-card-image" loading="lazy">
                     </div>
                     <div class="brand-card-info">
                         <h4 class="brand-name">Regnas Collection</h4>
@@ -208,8 +432,8 @@
 
                 <div class="brand-card">
                     <div class="brand-card-image-container">
-                        <img src="public/images/design-mode/Logo-SelvaDourada.png" alt="Logo Selva Dourada" class="brand-card-logo">
-                        <img src="public/images/design-mode/Capa-SelvaDourada.png" alt="Trabalho Selva Dourada" class="brand-card-image">
+                        <img src="assets/images/marcas/img-marcas-04-logo.png" alt="Logo Selva Dourada" class="brand-card-logo" loading="lazy">
+                        <img src="assets/images/marcas/img-marcas-04.png" alt="Trabalho Selva Dourada" class="brand-card-image" loading="lazy">
                     </div>
                     <div class="brand-card-info">
                         <h4 class="brand-name">Selva Dourada</h4>
@@ -219,8 +443,8 @@
 
                 <div class="brand-card">
                     <div class="brand-card-image-container">
-                        <img src="public/images/design-mode/Logo-EssentialVitae.png" alt="Logo Essential Vitae Spa" class="brand-card-logo">
-                        <img src="public/images/design-mode/Capa-EssentialVitae.png" alt="Trabalho Essential Vitae Spa" class="brand-card-image">
+                        <img src="assets/images/marcas/img-marcas-05-logo.png" alt="Logo Essential Vitae Spa" class="brand-card-logo" loading="lazy">
+                        <img src="assets/images/marcas/img-marcas-05.png" alt="Trabalho Essential Vitae Spa" class="brand-card-image" loading="lazy">
                     </div>
                     <div class="brand-card-info">
                         <h4 class="brand-name">Essential Vitae Spa</h4>
@@ -230,8 +454,8 @@
 
                 <div class="brand-card">
                     <div class="brand-card-image-container">
-                        <img src="public/images/design-mode/Logo-VerdiLog.png" alt="Logo VerdiLog" class="brand-card-logo">
-                        <img src="public/images/design-mode/Capa-VerdiLog.png" alt="Trabalho VerdiLog" class="brand-card-image">
+                        <img src="assets/images/marcas/img-marcas-06-logo.png" alt="Logo VerdiLog" class="brand-card-logo" loading="lazy">
+                        <img src="assets/images/marcas/img-marcas-06.png" alt="Trabalho VerdiLog" class="brand-card-image" loading="lazy">
                     </div>
                     <div class="brand-card-info">
                         <h4 class="brand-name">VerdiLog</h4>
@@ -242,14 +466,28 @@
         </div>
     </section>
 
-    <div class="modal" id="coverModal">
+    <!-- CTA — COMEÇAR -->
+    <section class="start-section" id="comecar">
+        <div class="container">
+            <div class="start-panel">
+                <span class="section-label">Começar</span>
+                <h2 class="section-title">Um projeto editorial merece um processo à altura.</h2>
+                <p class="section-description">A Editora Ortz estrutura obras, volumes e narrativas de marca com atenção ao conteúdo, ao objeto e ao tempo de circulação.</p>
+                <a href="#contato" class="btn btn-primary">Iniciar Conversa</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL DE CAPA -->
+    <div class="modal" id="coverModal" role="dialog" aria-modal="true" aria-label="Visualizar capa">
         <div class="modal-overlay"></div>
         <div class="modal-content">
             <button class="modal-close" aria-label="Fechar">&times;</button>
-            <img src="/placeholder.svg" alt="Capa" class="modal-image">
+            <img src="assets/images/volumes/img-volumes-01.png" alt="Capa" class="modal-image">
         </div>
     </div>
 
+    <!-- CONTATO -->
     <section class="contact-area" id="contato">
         <div class="container">
             <div class="contact-card">
@@ -260,7 +498,7 @@
                         <div class="contact-details">
                             <div class="contact-detail">
                                 <div class="contact-icon">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                                         <polyline points="22,6 12,13 2,6"/>
                                     </svg>
@@ -272,7 +510,7 @@
                             </div>
                             <div class="contact-detail">
                                 <div class="contact-icon">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
                                     </svg>
                                 </div>
@@ -283,7 +521,7 @@
                             </div>
                             <div class="contact-detail">
                                 <div class="contact-icon">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
                                         <circle cx="12" cy="10" r="3"/>
                                     </svg>
@@ -298,8 +536,8 @@
                     <div class="contact-logos">
                         <div class="logo-showcase">
                             <div class="logo-display">
-                                <img src="public/images/design-mode/EditoraOrtz-B.png" alt="Editora Ortz" class="footer-logo-icon logo-light">
-                                <img src="public/images/design-mode/EditoraOrtz-W.png" alt="Editora Ortz" class="footer-logo-icon logo-dark">                            
+                                <img src="assets/images/contato/img-contato-01.png" alt="Editora Ortz" class="logo-light" loading="lazy">
+                                <img src="assets/images/contato/img-contato-02.png" alt="Editora Ortz" class="logo-dark" loading="lazy">
                             </div>
                         </div>
                     </div>
@@ -308,47 +546,54 @@
         </div>
     </section>
 
+    </main>
 
+    <!-- RODAPÉ -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
+                <!-- Coluna: Marca -->
                 <div class="footer-brand">
                     <div class="footer-logo-container">
-                        <img src="public/images/design-mode/Logo-W.png" alt="Editora Ortz" class="footer-logo-icon">
+                        <img src="assets/images/institucional/img-institucional-02.png" alt="Editora Ortz" class="footer-logo-icon" loading="lazy">
                         <span class="footer-logo-text">Editora Ortz</span>
                     </div>
-                    <p class="footer-tagline">Onde a essência natural encontra a excelência editorial</p>
+                    <p class="footer-tagline">Onde a essência natural encontra a excelência editorial.</p>
                 </div>
-                <div class="footer-links">
-                    <div class="footer-column footer-nav-links">
-                        <h4 class="footer-heading">Navegação</h4>
-                        <ul class="footer-menu">
-                            <li><a href="sobre.html">Sobre</a></li>
-                            <li><a href="#servicos">Serviços</a></li>
-                            <li><a href="#volumes">Volumes</a></li>
-                            <li><a href="#marcas">Marcas</a></li>
-                            <li><a href="#contato">Contato</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-column footer-conglomerado-links">
-                        <h4 class="footer-heading">Conglomerado</h4>
-                        <ul class="footer-menu">
-                            <li><a href="#">QRZ Group</a></li>
-                            <li><a href="#volumes">Volumes</a></li>
-                            <li><a href="#servicos">Serviços</a></li>
-                        </ul>
-                    </div>
+
+                <!-- Coluna: Navegação -->
+                <div class="footer-column footer-nav-links">
+                    <h4 class="footer-heading">Navegação</h4>
+                    <ul class="footer-menu">
+                        <li><a href="sobre.html">Sobre</a></li>
+                        <li><a href="#servicos">Serviços</a></li>
+                        <li><a href="#volumes">Volumes</a></li>
+                        <li><a href="#marcas">Marcas</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </div>
+
+                <!-- Coluna: Conglomerado -->
+                <div class="footer-column footer-conglomerado-links">
+                    <h4 class="footer-heading">Conglomerado</h4>
+                    <ul class="footer-menu">
+                        <li><a href="#">QRZ Group</a></li>
+                        <li><a href="#volumes">Volumes</a></li>
+                        <li><a href="#servicos">Serviços</a></li>
+                    </ul>
                 </div>
             </div>
+
             <div class="footer-bottom">
                 <p class="footer-copyright">&copy; 2025 Editora Ortz. Parte do Conglomerado QRZ desde 1995. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
 
+    <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="script.js"></script>
+    <script src="assets/js/js.global.js"></script>
 
     <!-- Registro do Service Worker (PWA) -->
     <script>
@@ -360,5 +605,18 @@
         });
       }
     </script>
+
+    <!-- Botões de Scroll -->
+    <button class="scroll-up-btn" aria-label="Scroll to top" title="Ir para o topo">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </button>
+    <button class="scroll-down-btn" aria-label="Scroll down" title="Rolar para baixo">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 9l6 6 6-6"/>
+        </svg>
+    </button>
+
 </body>
 </html>

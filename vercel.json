@@ -24,25 +24,11 @@
       "dest": "/manifest.json"
     },
     {
-      "src": "/public/(.*)",
+      "src": "/assets/(.*)",
       "headers": {
         "Cache-Control": "public, max-age=31536000, immutable"
       },
-      "dest": "/public/$1"
-    },
-    {
-      "src": "/(styles|mobile)\\.css",
-      "headers": {
-        "Cache-Control": "public, max-age=86400"
-      },
-      "dest": "/$1.css"
-    },
-    {
-      "src": "/script\\.js",
-      "headers": {
-        "Cache-Control": "public, max-age=86400"
-      },
-      "dest": "/script.js"
+      "dest": "/assets/$1"
     },
     {
       "src": "/(.*)\\.html",

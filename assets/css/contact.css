@@ -1,0 +1,139 @@
+/* ============================================================
+   CONTATO | assets/css/contact.css
+   Seção de contato e showcase de logos — Editora Ortz
+   ============================================================ */
+
+.contact-area {
+  background-color: var(--color-bg);
+}
+
+.contact-card {
+  background-color: #ffffff;
+  border-radius: 2.5rem;
+  padding: 4rem;
+  box-shadow: 0 20px 60px -10px rgba(17, 15, 17, 0.10);
+  border: 1px solid rgba(106, 23, 23, 0.06);
+  transition: var(--transition);
+}
+
+body.dark-mode .contact-card {
+  background-color: var(--color-light);
+  box-shadow: 0 20px 60px -10px rgba(0, 0, 0, 0.30);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.contact-content {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.contact-title {
+  font-family: var(--font-serif);
+  font-size: 2.4rem;
+  color: var(--color-text);
+  margin-bottom: 1.5rem;
+  line-height: 1.25;
+  font-weight: 400;
+}
+
+.contact-description {
+  color: var(--color-text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.85;
+  margin-bottom: 3rem;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+.contact-detail {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.4rem;
+}
+
+.contact-icon {
+  color: var(--color-primary);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.contact-label {
+  display: block;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 0.25rem;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+}
+
+.contact-value {
+  color: var(--color-text-secondary);
+  font-size: 1.05rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a.contact-value:hover {
+  color: var(--color-primary);
+}
+
+/* Logo showcase */
+.contact-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-showcase { text-align: center; }
+
+.logo-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 2.5rem 2rem;
+  background-color: var(--color-light);
+  border-radius: 2rem;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.07);
+  position: relative;
+  min-height: 160px;
+}
+
+body.dark-mode .logo-display {
+  background-color: var(--color-white);
+}
+
+.logo-display .logo-light {
+  opacity: 1;
+  position: static;
+  transition: opacity 0.3s ease;
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+}
+
+.logo-display .logo-dark {
+  opacity: 0;
+  position: absolute;
+  transition: opacity 0.3s ease;
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+}
+
+body.dark-mode .logo-display .logo-light {
+  opacity: 0;
+  position: absolute;
+}
+
+body.dark-mode .logo-display .logo-dark {
+  opacity: 1;
+  position: static;
+}

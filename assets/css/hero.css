@@ -1,0 +1,102 @@
+/* ============================================================
+   HERO | assets/css/hero.css
+   Hero com imagem de fundo fotográfica — Editora Ortz
+   ============================================================ */
+
+.hero {
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 10rem 0 5rem;
+  background-image:
+    linear-gradient(
+      to bottom,
+      rgba(10, 9, 9, 0.38) 0%,
+      rgba(10, 9, 9, 0.52) 60%,
+      rgba(10, 9, 9, 0.78) 100%
+    ),
+    url('../images/hero/img-hero-01.webp');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+  justify-items: center;
+}
+
+.hero-slideshow { display: none; }
+
+.hero-content {
+  text-align: center;
+  z-index: 2;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-weight: 400;
+  line-height: 1.15;
+  margin-bottom: 2rem;
+  color: #ffffff;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+  letter-spacing: -0.5px;
+}
+
+.hero-subtitle {
+  font-size: clamp(1.05rem, 2vw, 1.3rem);
+  margin-bottom: 3rem;
+  max-width: 680px;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.88);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Indicador de scroll */
+.scroll-indicator {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: heroBounce 2.2s ease-in-out infinite;
+  z-index: 4;
+  color: rgba(255, 255, 255, 0.7);
+  gap: 0.4rem;
+}
+
+.scroll-indicator::before {
+  content: '';
+  display: block;
+  width: 1px;
+  height: 32px;
+  background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.6));
+}
+
+.scroll-icon { color: rgba(255, 255, 255, 0.7); }
+
+@keyframes heroBounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%       { transform: translateX(-50%) translateY(8px); }
+}

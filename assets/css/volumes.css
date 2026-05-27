@@ -1,0 +1,151 @@
+/* ============================================================
+   VOLUMES | assets/css/volumes.css
+   Portfólio de volumes e página interna de volumes
+   ============================================================ */
+
+/* === Seção volumes na index === */
+.our-work {
+  background: linear-gradient(to bottom, var(--color-bg) 0%, var(--color-light) 100%);
+  overflow: hidden;
+  position: relative;
+}
+
+.work-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 2;
+}
+
+.work-btn {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  border: none;
+  padding: 1.1rem 2.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 999px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  transition: var(--transition);
+  box-shadow: 0 4px 20px rgba(106, 23, 23, 0.28);
+  text-decoration: none;
+  letter-spacing: 0.3px;
+}
+
+.work-btn:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 8px 30px rgba(106, 23, 23, 0.38);
+  background-color: #8a2020;
+}
+
+.work-preview-container {
+  position: relative;
+  margin: 0 auto;
+  margin-top: -4rem;
+  padding-top: 1rem;
+  max-width: 520px;
+  z-index: 1;
+  opacity: 0.18;
+  mask-image: linear-gradient(to bottom, black 20%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 20%, transparent 100%);
+  transition: var(--transition);
+  pointer-events: none;
+}
+
+.work-buttons:hover + .work-preview-container {
+  opacity: 0.38;
+  transform: translateY(4px);
+}
+
+.work-preview-images {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  padding-bottom: 2rem;
+}
+
+.work-preview-images img {
+  width: 140px;
+  height: auto;
+  border-radius: 6px;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.28);
+}
+
+/* === Grid de obras (página volumes.html) === */
+.volumes-page {
+  min-height: 60vh;
+  padding: 12rem 0 8rem;
+  background: linear-gradient(to bottom, var(--color-bg) 0%, var(--color-light) 100%);
+}
+
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2.5rem;
+}
+
+.work-item {
+  background-color: var(--color-light);
+  border-radius: 2rem;
+  overflow: hidden;
+  transition: var(--transition);
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(106, 23, 23, 0.07);
+}
+
+.work-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(106, 23, 23, 0.13);
+  border-color: rgba(106, 23, 23, 0.16);
+}
+
+.work-image {
+  width: 100%;
+  height: 460px;
+  overflow: hidden;
+}
+
+.work-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.work-item:hover .work-image img {
+  transform: scale(1.05);
+}
+
+.work-info { padding: 1.5rem; }
+
+.work-year {
+  display: inline-block;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.82rem;
+  color: var(--color-primary);
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.work-title {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  color: var(--color-text);
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.work-description {
+  color: var(--color-text-secondary);
+  font-size: 0.92rem;
+  line-height: 1.65;
+}

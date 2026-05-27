@@ -14,9 +14,9 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Editora Ortz">
-    <link rel="apple-touch-icon" href="public/icons/icon-192x192.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="public/icons/icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="public/icons/icon-144x144.png">
+    <link rel="apple-touch-icon" href="assets/icons/icon-192x192.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/icons/icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/icons/icon-144x144.png">
 
     <!-- SEO & Open Graph -->
     <meta name="description" content="Projetos editoriais da Editora Ortz para marcas: narrativas autênticas e branded content de alto impacto.">
@@ -24,10 +24,15 @@
     <meta property="og:description" content="Projetos editoriais que elevam marcas com narrativas autênticas.">
     <meta property="og:type" content="website">
 
-    <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/site.css">
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/css/brands.css">
+    <link rel="stylesheet" href="assets/css/volumes.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
 </head>
 <body>
     <button class="theme-toggle" aria-label="Toggle dark mode">
@@ -61,8 +66,8 @@
         <div class="nav-container">
             <a href="index.html" class="nav-logo-link">
                 <div class="nav-logo">
-                    <img src="public/images/design-mode/Ortz-B.png" alt="Editora Ortz" class="logo-icon logo-light">
-                    <img src="public/images/design-mode/Ortz-W.png" alt="Editora Ortz" class="logo-icon logo-dark">
+                    <img src="assets/images/institucional/img-institucional-01.png" alt="Editora Ortz" class="logo-icon logo-light">
+                    <img src="assets/images/institucional/img-institucional-02.png" alt="Editora Ortz" class="logo-icon logo-dark">
                     <span class="logo-text">Editora Ortz</span>
                 </div>
             </a>
@@ -93,54 +98,54 @@
             </div>
             
             <div class="work-grid brands-grid">
-                <div class="brand-item" onclick="openCoverModal(this)" data-cover="public/images/design-mode/Capa-SerraSereno.png">
+                <div class="brand-item" onclick="openCoverModal(this)" data-cover="assets/images/marcas/img-marcas-01.png">
                     <div class="brand-image">
-                        <img src="public/images/design-mode/Capa-SerraSereno.png" alt="Hotéis Serra e Sereno">
+                        <img src="assets/images/marcas/img-marcas-01.png" alt="Hotéis Serra e Sereno">
                     </div>
                     <div class="brand-info">
                         <h4 class="brand-name">Hotéis Serra e Sereno</h4>
                         <p class="brand-description">Luxo rústico e o conforto da natureza brasileira.</p>
                     </div>
                 </div>                
-                <div class="brand-item" onclick="openCoverModal(this)" data-cover="public/images/design-mode/Capa-CodiceBotanico.png">
+                <div class="brand-item" onclick="openCoverModal(this)" data-cover="assets/images/marcas/img-marcas-02.png">
                     <div class="brand-image">
-                        <img src="public/images/design-mode/Capa-CodiceBotanico.png" alt="Códice Botânico">
+                        <img src="assets/images/marcas/img-marcas-02.png" alt="Códice Botânico">
                     </div>
                     <div class="brand-info">
                         <h4 class="brand-name">Códice Botânico</h4>
                         <p class="brand-description">Papelaria de luxo com materiais sustentáveis para obras de alto valor.</p>
                     </div>
                 </div>
-                <div class="brand-item" onclick="openCoverModal(this)" data-cover="public/images/design-mode/Capa-Regnas.png">
+                <div class="brand-item" onclick="openCoverModal(this)" data-cover="assets/images/marcas/img-marcas-03.png">
                     <div class="brand-image">
-                        <img src="public/images/design-mode/Capa-Regnas.png" alt="Regnas Collection">
+                        <img src="assets/images/marcas/img-marcas-03.png" alt="Regnas Collection">
                     </div>
                     <div class="brand-info">
                         <h4 class="brand-name">Regnas Collection</h4>
                         <p class="brand-description">Canetas tinteiro elegantes feitas com madeira nobre para CEOs.</p>
                     </div>
                 </div>
-                <div class="brand-item" onclick="openCoverModal(this)" data-cover="public/images/design-mode/Capa-SelvaDourada.png">
+                <div class="brand-item" onclick="openCoverModal(this)" data-cover="assets/images/marcas/img-marcas-04.png">
                     <div class="brand-image">
-                        <img src="public/images/design-mode/Capa-SelvaDourada.png" alt="Selva Dourada">
+                        <img src="assets/images/marcas/img-marcas-04.png" alt="Selva Dourada">
                     </div>
                     <div class="brand-info">
                         <h4 class="brand-name">Selva Dourada</h4>
                         <p class="brand-description">Joias inspiradas na natureza, cheias de autenticidade e elegância.</p>
                     </div>
                 </div>
-                <div class="brand-item" onclick="openCoverModal(this)" data-cover="public/images/design-mode/Capa-EssentialVitae.png">
+                <div class="brand-item" onclick="openCoverModal(this)" data-cover="assets/images/marcas/img-marcas-05.png">
                     <div class="brand-image">
-                        <img src="public/images/design-mode/Capa-EssentialVitae.png" alt="Essential Vitae Spa">
+                        <img src="assets/images/marcas/img-marcas-05.png" alt="Essential Vitae Spa">
                     </div>
                     <div class="brand-info">
                         <h4 class="brand-name">Essential Vitae Spa</h4>
                         <p class="brand-description">Óleos essenciais que unem tradição botânica e tecnologia sustentável.</p>
                     </div>
                 </div>
-                <div class="brand-item" onclick="openCoverModal(this)" data-cover="public/images/design-mode/Capa-VerdiLog.png">
+                <div class="brand-item" onclick="openCoverModal(this)" data-cover="assets/images/marcas/img-marcas-06.png">
                     <div class="brand-image">
-                        <img src="public/images/design-mode/Capa-VerdiLog.png" alt="VerdiLog">
+                        <img src="assets/images/marcas/img-marcas-06.png" alt="VerdiLog">
                     </div>
                     <div class="brand-info">
                         <h4 class="brand-name">VerdiLog</h4>
@@ -155,7 +160,7 @@
         <div class="modal-overlay"></div>
         <div class="modal-content">
             <button class="modal-close" aria-label="Fechar">&times;</button>
-            <img src="/placeholder.svg" alt="Capa" class="modal-image">
+            <img src="assets/images/volumes/img-volumes-01.png" alt="Capa" class="modal-image">
         </div>
     </div>
 
@@ -164,28 +169,28 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <div class="footer-logo-container">
-                        <img src="public/images/design-mode/Ortz-W.png" alt="Editora Ortz" class="footer-logo-icon">
+                        <img src="assets/images/institucional/img-institucional-02.png" alt="Editora Ortz" class="footer-logo-icon" loading="lazy">
                         <span class="footer-logo-text">Editora Ortz</span>
                     </div>
-                    <p class="footer-tagline">Onde a essência natural encontra a excelência editorial</p>
+                    <p class="footer-tagline">Onde a essência natural encontra a excelência editorial.</p>
                 </div>
-                <div class="footer-links">
-                    <div class="footer-column">
-                        <h4 class="footer-heading">Navegação</h4>
-                        <ul class="footer-menu">
-                            <li><a href="sobre.html">Sobre</a></li>
-                            <li><a href="index.html#trabalhos">Trabalhos</a></li>
-                            <li><a href="index.html#contato">Contato</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-column">
-                        <h4 class="footer-heading">Conglomerado</h4>
-                        <ul class="footer-menu">
-                            <li><a href="#">QRZ Group</a></li>
-                            <li><a href="#">Outras Marcas</a></li>
-                            <li><a href="#">Parcerias</a></li>
-                        </ul>
-                    </div>
+                <div class="footer-column footer-nav-links">
+                    <h4 class="footer-heading">Navegação</h4>
+                    <ul class="footer-menu">
+                        <li><a href="sobre.html">Sobre</a></li>
+                        <li><a href="index.html#servicos">Serviços</a></li>
+                        <li><a href="index.html#volumes">Volumes</a></li>
+                        <li><a href="index.html#marcas">Marcas</a></li>
+                        <li><a href="index.html#contato">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column footer-conglomerado-links">
+                    <h4 class="footer-heading">Conglomerado</h4>
+                    <ul class="footer-menu">
+                        <li><a href="#">QRZ Group</a></li>
+                        <li><a href="index.html#volumes">Volumes</a></li>
+                        <li><a href="index.html#servicos">Serviços</a></li>
+                    </ul>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -196,7 +201,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="script.js"></script>
+    <script src="assets/js/js.global.js"></script>
     <script>
         // Script do modal local (necessário para esta página)
         const CoverModal = {

@@ -1,0 +1,405 @@
+/* ============================================================
+   PROCESSO EDITORIAL | assets/css/process.css
+   Layout disruptivo, blocos Bauhaus, estilo bookmark
+   ============================================================ */
+
+.process {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    position: relative;
+    padding-bottom: 8rem;
+    overflow: hidden;
+}
+
+/* Introdução */
+.process-intro {
+    padding: 8rem 0 4rem;
+    position: relative;
+    z-index: 2;
+    background-color: var(--color-bg);
+}
+
+.process-title {
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 300;
+    line-height: 1.1;
+    margin: 1.5rem 0;
+    letter-spacing: -0.02em;
+    color: var(--color-primary);
+}
+
+.process-sub {
+    font-size: 1.25rem;
+    max-width: 600px;
+    opacity: 0.8;
+}
+
+/* Container de cada passo (Bauhaus Layout) */
+.process-step {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    min-height: 90vh;
+    align-items: center;
+    position: relative;
+    padding: 4rem 10vw;
+}
+
+.process-step--alt {
+    grid-template-columns: 1fr 1fr;
+}
+
+/* Blocos Bauhaus (Fotos) */
+.process-step__image-wrapper {
+    position: relative;
+    height: 60vh;
+    width: 100%;
+    z-index: 1;
+}
+
+.process-step__image {
+    position: relative;
+    height: 100%;
+    width: 90%;
+    overflow: hidden;
+    z-index: 2;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    border-radius: 2rem;
+}
+
+.process-step--alt .process-step__image {
+    margin-left: auto;
+}
+
+.process-step__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transform: scale(1.1);
+    will-change: transform;
+}
+
+/* Shapes Geométricas Bauhaus */
+.bauhaus-block {
+    position: absolute;
+    z-index: 1;
+    border-radius: 2rem;
+}
+
+.bauhaus-block--1 {
+    width: 60%;
+    height: 80%;
+    background-color: #A34A3E; /* Tom avermelhado terroso */
+    top: -10%;
+    right: 0;
+}
+
+.bauhaus-block--2 {
+    width: 70%;
+    height: 60%;
+    background-color: #D4AF37; /* Dourado/Ocre */
+    bottom: -10%;
+    left: 0;
+}
+
+.bauhaus-block--3 {
+    width: 50%;
+    height: 90%;
+    background-color: #344a3e; /* Verde floresta mate */
+    top: 5%;
+    right: -5%;
+}
+
+/* Blocos Bauhaus adicionais (tridimensionais, agora atrás da imagem) */
+.bauhaus-block--front {
+    z-index: 1;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Etapa 01 - Pesquisa */
+.bauhaus-block--1b {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background-color: #D4AF37; /* Dourado ocre */
+    bottom: -8%;
+    left: -8%;
+}
+
+.bauhaus-block--1c {
+    width: 40px;
+    height: 50%;
+    background-color: #344a3e; /* Verde floresta mate */
+    top: 15%;
+    left: -20px;
+}
+
+/* Etapa 02 - Edição */
+.bauhaus-block--2b {
+    width: 160px;
+    height: 160px;
+    background-color: #344a3e; /* Verde floresta mate */
+    top: -12%;
+    right: -5%;
+}
+
+.bauhaus-block--2c {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #A34A3E; /* Vermelho terroso */
+    bottom: 10%;
+    right: -30px;
+}
+
+/* Etapa 03 - Publicação */
+.bauhaus-block--3b {
+    width: 60%;
+    height: 30%;
+    background-color: #A34A3E; /* Vermelho terroso */
+    bottom: -10%;
+    left: -5%;
+}
+
+.bauhaus-block--3c {
+    width: 120px;
+    height: 120px;
+    background-color: #D4AF37; /* Dourado ocre */
+    top: 8%;
+    left: -25px;
+    transform: rotate(15deg);
+}
+
+.process-step__overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(to right, rgba(0,0,0,0.1), rgba(0,0,0,0.3));
+    pointer-events: none;
+}
+
+/* Inverte a ordem no grid para itens alternados */
+.process-step--alt .process-step__image-wrapper {
+    order: 2;
+}
+
+.process-step--alt .bookmark-card {
+    order: 1;
+}
+
+/* Bookmark Card (Textos) */
+.bookmark-card {
+    background-color: var(--color-bg);
+    padding: 4rem 4rem 6rem 4rem;
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+    margin-top: -2rem; /* Cria um desnível estético */
+}
+
+/* O "Rabo" do marcador de páginas */
+.bookmark-tail {
+    position: absolute;
+    bottom: -3rem; /* Tamanho da cauda */
+    left: 0;
+    width: 100%;
+    height: 3rem;
+    background-color: var(--color-bg);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 0, 0 100%);
+    z-index: -1;
+    /* Falso box-shadow para o SVG/Clip path se necessário, mas o body background basta */
+}
+
+.dark-mode .bookmark-card,
+.dark-mode .bookmark-tail {
+    background-color: #1a1a18; /* Cor mais sólida pro modo dark */
+}
+
+.process-step__tag {
+    font-family: var(--font-secondary);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+    color: var(--color-primary);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+/* Título e SVG juntos */
+.process-step__title-group {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+.process-step__heading {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 500;
+    line-height: 1.1;
+    color: var(--color-text);
+    margin: 0;
+}
+
+.process-step__graphic {
+    color: var(--color-primary);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dark-mode .process-step__graphic {
+    color: #e4a4a4; /* Vermelho/rosa claro, muito mais visível no dark mode */
+}
+
+.process-step__text {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+    opacity: 0.85;
+}
+
+.process-step__pillars {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.process-step__pillars li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    font-family: var(--font-secondary);
+    font-weight: 500;
+}
+
+.process-step__pillars li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 1px;
+    background-color: var(--color-primary);
+}
+
+/* Número gigante dentro do bookmark */
+.process-step__num {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-family: var(--font-primary);
+    font-size: 5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    line-height: 1;
+    opacity: 0.1;
+}
+
+.dark-mode .process-step__num {
+    color: var(--color-text);
+    opacity: 0.05;
+}
+
+/* Animações Complexas do SVG */
+.process-step__graphic svg {
+    overflow: visible;
+}
+
+.svg-line-anim {
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+    animation: drawLine 3s ease-in-out infinite alternate;
+}
+
+.svg-draw-anim {
+    stroke-dasharray: 120;
+    stroke-dashoffset: 120;
+    animation: drawLine 4s ease-in-out infinite alternate;
+}
+
+.svg-pulse-anim {
+    animation: svgPulse 2.5s ease-in-out infinite alternate;
+    transform-origin: center;
+}
+
+.svg-spin-anim {
+    animation: svgSpin 8s linear infinite;
+    transform-origin: center;
+}
+
+.svg-float-anim {
+    animation: svgFloat 3s ease-in-out infinite alternate;
+}
+
+@keyframes drawLine {
+    0% { stroke-dashoffset: 120; }
+    100% { stroke-dashoffset: 0; }
+}
+
+@keyframes svgPulse {
+    0% { transform: scale(0.85); opacity: 0.5; }
+    100% { transform: scale(1.15); opacity: 1; }
+}
+
+@keyframes svgSpin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes svgFloat {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-4px); }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .process-step {
+        gap: 2rem;
+        padding: 4rem 5vw;
+    }
+    .bookmark-card {
+        padding: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .process-step, .process-step--alt {
+        grid-template-columns: 1fr;
+        padding: 2rem 1rem;
+        gap: 3rem;
+    }
+
+    .process-step__image-wrapper {
+        order: 1 !important;
+        height: 40vh;
+    }
+
+    .process-step__image {
+        width: 100%;
+    }
+
+    .bookmark-card {
+        order: 2 !important;
+        margin-top: -4rem; /* Sobrepõe a imagem no mobile */
+        padding: 2.5rem 1.5rem;
+        box-shadow: 0 -10px 30px rgba(0,0,0,0.1);
+    }
+    
+    .bookmark-tail {
+        bottom: -2rem;
+        height: 2rem;
+    }
+
+    .process-step__title-group {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+}
