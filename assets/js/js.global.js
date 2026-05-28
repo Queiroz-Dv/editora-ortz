@@ -35,21 +35,12 @@ const Navigation = {
       return
     }
 
-    if (!("IntersectionObserver" in window)) {
-      window.addEventListener("scroll", () => {
-        this.nav.classList.toggle("scrolled", window.scrollY > 100)
-      }, { passive: true })
-      return
+    const updateScrolledState = () => {
+      this.nav.classList.toggle("scrolled", window.scrollY > 100)
     }
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        this.nav.classList.toggle("scrolled", !entry.isIntersecting)
-      },
-      { threshold: 0.08 }
-    )
-
-    observer.observe(hero)
+    updateScrolledState()
+    window.addEventListener("scroll", updateScrolledState, { passive: true })
   },
 
   attachMenuToggle() {

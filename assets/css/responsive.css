@@ -26,6 +26,22 @@
   /* Footer */
   .footer-content { grid-template-columns: 1fr; gap: 3rem; }
 
+  /* Sobre */
+  .about-ledger__grid,
+  .about-fit__grid,
+  .about-ecosystem__panel {
+    grid-template-columns: 1fr;
+  }
+
+  .about-method__rail,
+  .about-studio__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-principles {
+    grid-template-columns: 1fr;
+  }
+
   /* Protocol */
   .protocol-card {
     grid-template-columns: 1fr;
@@ -117,6 +133,60 @@
   .hero-subtitle { font-size: 1rem; }
   .hero-cta { flex-direction: column; align-items: center; }
   .hero-cta .btn { width: 100%; text-align: center; }
+
+  /* Sobre */
+  .about-hero {
+    padding-top: 8rem;
+  }
+
+  .about-hero__title {
+    font-size: clamp(2.6rem, 15vw, 4rem);
+  }
+
+  .about-hero__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .about-hero__actions .btn {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .about-hero__text-link {
+    align-self: center;
+  }
+
+  .about-principle {
+    min-height: auto;
+  }
+
+  .about-method__rail,
+  .about-studio__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-method__step {
+    border-right: 0;
+    border-bottom: 1px solid rgba(106, 23, 23, 0.12);
+  }
+
+  .about-method__step:last-child {
+    border-bottom: 0;
+  }
+
+  .about-fit__covers {
+    min-height: 380px;
+  }
+
+  .about-fit__covers img {
+    width: min(48%, 180px);
+  }
+
+  .about-ecosystem__panel {
+    text-align: center;
+  }
 
   /* Botões */
   .btn { padding: 0.82rem 1.8rem; font-size: 0.9rem; }

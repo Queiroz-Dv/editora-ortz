@@ -137,15 +137,17 @@ body.dark-mode .testimonial-author {
 /* Stars de rating */
 .testimonial-stars {
   display: flex;
-  gap: 2px;
-  color: #d4a853;
+  gap: 3px;
+  color: #dfb893;
   margin-bottom: 0.5rem;
+  align-items: center;
 }
 
 .testimonial-stars svg {
-  width: 16px;
-  height: 16px;
+  width: 13px;
+  height: 13px;
   fill: currentColor;
+  display: block;
 }
 
 @keyframes testimonial-marquee {

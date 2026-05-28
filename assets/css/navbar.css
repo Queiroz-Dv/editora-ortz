@@ -1,6 +1,6 @@
 /* ============================================================
    NAVBAR | assets/css/navbar.css
-   Navbar flutuante tipo island/pill — Editora Ortz
+   Navbar flutuante tipo island/pill - Editora Ortz
    ============================================================ */
 
 .nav {
@@ -38,7 +38,7 @@ body.dark-mode .nav.scrolled {
   border-bottom-color: rgba(171, 159, 151, 0.2);
 }
 
-/* Ícone logo / texto — branco quando nav transparente no hero */
+/* Logo and text are white while the nav is transparent over the hero. */
 .nav:not(.scrolled):not(:hover) .logo-text,
 .nav:not(.scrolled):not(:hover) .nav-menu a,
 .nav:not(.scrolled):not(:hover) .theme-toggle {
@@ -85,6 +85,7 @@ body.dark-mode .nav.scrolled {
   position: static;
   transition: opacity 0.3s ease;
 }
+
 .nav-logo .logo-dark {
   opacity: 0;
   position: absolute;
@@ -92,10 +93,12 @@ body.dark-mode .nav.scrolled {
   top: 0;
   transition: opacity 0.3s ease;
 }
+
 body.dark-mode .nav-logo .logo-light {
   opacity: 0;
   position: absolute;
 }
+
 body.dark-mode .nav-logo .logo-dark {
   opacity: 1;
   position: static;
@@ -175,9 +178,9 @@ body.dark-mode .nav-logo .logo-dark {
   height: 18px;
 }
 
-.theme-toggle .sun-icon  { display: block; }
+.theme-toggle .sun-icon { display: block; }
 .theme-toggle .moon-icon { display: none; }
-body.dark-mode .theme-toggle .sun-icon  { display: none; }
+body.dark-mode .theme-toggle .sun-icon { display: none; }
 body.dark-mode .theme-toggle .moon-icon { display: block; }
 
 /* Hamburger */
@@ -200,11 +203,13 @@ body.dark-mode .theme-toggle .moon-icon { display: block; }
   display: block;
 }
 
-/* Hamburger → X */
+/* Hamburger to X */
 .menu-toggle.active span:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
 }
+
 .menu-toggle.active span:nth-child(2) { opacity: 0; }
+
 .menu-toggle.active span:nth-child(3) {
   transform: rotate(-45deg) translate(5px, -5px);
 }
