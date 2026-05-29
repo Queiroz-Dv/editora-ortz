@@ -1,20 +1,20 @@
 // Service Worker - Editora Ortz PWA
 // Cache: HTML Network First, assets locais Cache First, CDN Stale-While-Revalidate
 
-const CACHE_VERSION = 'v1.2.15';
+const CACHE_VERSION = 'v1.2.19';
 const STATIC_CACHE  = `ortz-static-${CACHE_VERSION}`;
 const DYNAMIC_CACHE = `ortz-dynamic-${CACHE_VERSION}`;
 const IMAGE_CACHE   = `ortz-images-${CACHE_VERSION}`;
 
-// Recursos essenciais para prÃ©-cache no install (shell da aplicaÃ§Ã£o)
+// Recursos essenciais para pre-cache no install (shell da aplicacao)
 const PRECACHE_ASSETS = [
   '/',
   '/index.html',
   '/sobre.html',
   '/volumes.html',
   '/marcas.html',
-  '/assets/css/home.bundle.css?v=1.2.15',
-  '/assets/js/js.global.js?v=1.2.15',
+  '/assets/css/home.bundle.css?v=1.2.19',
+  '/assets/js/js.global.js?v=1.2.19',
   '/manifest.json',
   '/assets/images/institucional/img-institucional-01.png',
   '/assets/images/institucional/img-institucional-02.png',
@@ -25,24 +25,24 @@ const PRECACHE_ASSETS = [
   '/assets/icons/icon-512x512.png',
 ];
 
-// Limite de entradas em caches dinÃ¢micos
+// Limite de entradas em caches dinamicos
 const CACHE_LIMITS = {
   [DYNAMIC_CACHE]: 50,
   [IMAGE_CACHE]:   30,
 };
 
-// InstalaÃ§Ã£o
+// Instalacao
 self.addEventListener('install', (event) => {
   console.log('[SW] Instalando Service Worker...');
   event.waitUntil(
     caches.open(STATIC_CACHE)
       .then((cache) => {
-        console.log('[SW] PrÃ©-cache dos assets essenciais');
-        // Adiciona individualmente para nÃ£o abortar tudo se um falhar
+        console.log('[SW] Pre-cache dos assets essenciais');
+        // Adiciona individualmente para nao abortar tudo se um falhar
         return Promise.allSettled(
           PRECACHE_ASSETS.map((url) =>
             cache.add(url).catch((err) =>
-              console.warn(`[SW] Falha no prÃ©-cache: ${url}`, err)
+              console.warn(`[SW] Falha no pre-cache: ${url}`, err)
             )
           )
         );
@@ -51,7 +51,7 @@ self.addEventListener('install', (event) => {
   );
 });
 
-// AtivaÃ§Ã£o
+// Ativacao
 self.addEventListener('activate', (event) => {
   console.log('[SW] Ativando Service Worker...');
   const currentCaches = [STATIC_CACHE, DYNAMIC_CACHE, IMAGE_CACHE];
@@ -72,15 +72,15 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// InterceptaÃ§Ã£o de requisiÃ§Ãµes
+// Interceptacao de requisicoes
 self.addEventListener('fetch', (event) => {
   const { request } = event;
   const url = new URL(request.url);
 
-  // Ignora requisiÃ§Ãµes nÃ£o-GET e chrome-extension://
+  // Ignora requisicoes nao-GET e chrome-extension://
   if (request.method !== 'GET') return;
   if (!url.protocol.startsWith('http')) return;
-  // 1. PÃ¡ginas HTML: Network First
+  // 1. Paginas HTML: Network First
   if (request.headers.get('Accept')?.includes('text/html')) {
     event.respondWith(networkFirstStrategy(request, DYNAMIC_CACHE));
     return;
@@ -95,20 +95,20 @@ self.addEventListener('fetch', (event) => {
     event.respondWith(staleWhileRevalidate(request, DYNAMIC_CACHE));
     return;
   }
-  // 4. Assets estÃ¡ticos locais: Cache First
+  // 4. Assets estaticos locais: Cache First
   if (url.hostname === self.location.hostname) {
     event.respondWith(cacheFirstStrategy(request, STATIC_CACHE));
     return;
   }
-  // 5. Demais requisiÃ§Ãµes externas: Stale-While-Revalidate
+  // 5. Demais requisicoes externas: Stale-While-Revalidate
   event.respondWith(staleWhileRevalidate(request, DYNAMIC_CACHE));
 });
 
-// EstratÃ©gias de cache
+// Estrategias de cache
 
 /**
  * Network First: tenta a rede, usa cache se a rede falhar.
- * Ideal para pÃ¡ginas HTML (sempre a versÃ£o mais fresca).
+ * Ideal para paginas HTML (sempre a versao mais fresca).
  */
 async function networkFirstStrategy(request, cacheName) {
   const cache = await caches.open(cacheName);
@@ -122,14 +122,14 @@ async function networkFirstStrategy(request, cacheName) {
   } catch {
     const cached = await cache.match(request);
     if (cached) return cached;
-    // PÃ¡gina offline de fallback
+    // Pagina offline de fallback
     return offlineFallback();
   }
 }
 
 /**
  * Cache First: serve do cache; atualiza o cache em background se a entrada expirar.
- * Ideal para assets estÃ¡ticos que mudam raramente.
+ * Ideal para assets estaticos que mudam raramente.
  */
 async function cacheFirstStrategy(request, cacheName) {
   const cache = await caches.open(cacheName);
@@ -144,7 +144,7 @@ async function cacheFirstStrategy(request, cacheName) {
     }
     return networkResponse;
   } catch (err) {
-    console.warn('[SW] Recurso indisponÃ­vel e sem cache:', request.url);
+    console.warn('[SW] Recurso indisponivel e sem cache:', request.url);
     throw err;
   }
 }
@@ -186,7 +186,7 @@ function isCdnRequest(url) {
 }
 
 /**
- * Limita o nÃºmero de entradas em um cache para evitar crescimento ilimitado.
+ * Limita o numero de entradas em um cache para evitar crescimento ilimitado.
  */
 async function trimCache(cacheName, maxItems) {
   const cache = await caches.open(cacheName);
@@ -198,7 +198,7 @@ async function trimCache(cacheName, maxItems) {
 }
 
 /**
- * PÃ¡gina de fallback quando offline e sem cache disponÃ­vel.
+ * Pagina de fallback quando offline e sem cache disponivel.
  */
 function offlineFallback() {
   return new Response(
@@ -207,7 +207,7 @@ function offlineFallback() {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sem ConexÃ£o - Editora Ortz</title>
+  <title>Sem Conexao - Editora Ortz</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -267,8 +267,8 @@ function offlineFallback() {
     <circle cx="12" cy="12" r="3"/>
     <line x1="4.93" y1="4.93" x2="19.07" y2="19.07" stroke="#c0392b"/>
   </svg>
-  <h1>Sem ConexÃ£o</h1>
-  <p>VocÃª estÃ¡ offline. Verifique sua conexÃ£o com a internet e tente novamente.</p>
+  <h1>Sem Conexao</h1>
+  <p>Voce esta offline. Verifique sua conexao com a internet e tente novamente.</p>
   <button onclick="window.location.reload()">Tentar Novamente</button>
 </body>
 </html>`,

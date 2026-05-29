@@ -28,6 +28,7 @@
 
   /* Sobre */
   .about-ledger__grid,
+  .about-origin__grid,
   .about-fit__grid,
   .about-ecosystem__panel {
     grid-template-columns: 1fr;
@@ -162,6 +163,14 @@
     min-height: auto;
   }
 
+  .about-origin {
+    background-position: 58% center;
+  }
+
+  .about-proof {
+    padding: 1.5rem;
+  }
+
   .about-method__rail,
   .about-studio__grid {
     grid-template-columns: 1fr;
@@ -169,7 +178,7 @@
 
   .about-method__step {
     border-right: 0;
-    border-bottom: 1px solid rgba(106, 23, 23, 0.12);
+    min-height: auto;
   }
 
   .about-method__step:last-child {
@@ -186,6 +195,14 @@
 
   .about-ecosystem__panel {
     text-align: center;
+  }
+
+  .about-ecosystem__facts {
+    justify-content: center;
+  }
+
+  .about-cta__panel {
+    padding: 2rem 1.25rem;
   }
 
   /* Botões */
