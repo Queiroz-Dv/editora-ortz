@@ -26,10 +26,10 @@ const PRECACHE_ASSETS = [
 ];
 
 // Limite de entradas em caches dinamicos
-const CACHE_LIMITS = {
-  [DYNAMIC_CACHE]: 50,
-  [IMAGE_CACHE]:   30,
-};
+const CACHE_LIMITS = new Map([
+  [DYNAMIC_CACHE, 50],
+  [IMAGE_CACHE, 30],
+]);
 
 // Instalacao
 self.addEventListener('install', (event) => {
@@ -116,7 +116,7 @@ async function networkFirstStrategy(request, cacheName) {
     const networkResponse = await fetch(request);
     if (networkResponse.ok) {
       cache.put(request, networkResponse.clone());
-      await trimCache(cacheName, CACHE_LIMITS[cacheName] ?? 50);
+      await trimCache(cacheName, CACHE_LIMITS.get(cacheName) ?? 50);
     }
     return networkResponse;
   } catch {
@@ -140,7 +140,7 @@ async function cacheFirstStrategy(request, cacheName) {
     const networkResponse = await fetch(request);
     if (networkResponse.ok) {
       cache.put(request, networkResponse.clone());
-      await trimCache(cacheName, CACHE_LIMITS[cacheName] ?? 50);
+      await trimCache(cacheName, CACHE_LIMITS.get(cacheName) ?? 50);
     }
     return networkResponse;
   } catch (err) {
@@ -161,7 +161,7 @@ async function staleWhileRevalidate(request, cacheName) {
     .then((networkResponse) => {
       if (networkResponse.ok) {
         cache.put(request, networkResponse.clone());
-        trimCache(cacheName, CACHE_LIMITS[cacheName] ?? 50);
+        trimCache(cacheName, CACHE_LIMITS.get(cacheName) ?? 50);
       }
       return networkResponse;
     })
