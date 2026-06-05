@@ -1,7 +1,7 @@
 // Service Worker - Editora Ortz PWA
 // Cache: HTML Network First, assets locais Cache First, CDN Stale-While-Revalidate
 
-const CACHE_VERSION = 'v1.2.19';
+const CACHE_VERSION = 'v1.2.21';
 const STATIC_CACHE  = `ortz-static-${CACHE_VERSION}`;
 const DYNAMIC_CACHE = `ortz-dynamic-${CACHE_VERSION}`;
 const IMAGE_CACHE   = `ortz-images-${CACHE_VERSION}`;
@@ -13,14 +13,15 @@ const PRECACHE_ASSETS = [
   '/sobre.html',
   '/volumes.html',
   '/marcas.html',
-  '/assets/css/home.bundle.css?v=1.2.19',
+  '/assets/css/home.bundle.css?v=1.2.21',
   '/assets/js/js.global.js?v=1.2.19',
   '/manifest.json',
   '/assets/images/institucional/img-institucional-01.png',
   '/assets/images/institucional/img-institucional-02.png',
   '/assets/images/contato/img-contato-01.png',
   '/assets/images/contato/img-contato-02.png',
-  '/assets/images/hero/img-hero-01.webp',
+  '/assets/images/hero/Editora-Ortz-Capa.png',
+  '/assets/images/capa-apresentacao-ecommerce.png',
   '/assets/icons/icon-192x192.png',
   '/assets/icons/icon-512x512.png',
 ];

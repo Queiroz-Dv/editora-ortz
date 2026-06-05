@@ -61,9 +61,9 @@
   ],
   "screenshots": [
     {
-      "src": "assets/images/hero/img-hero-01.webp",
-      "sizes": "1920x1080",
-      "type": "image/webp",
+      "src": "assets/images/hero/Editora-Ortz-Capa.png",
+      "sizes": "1717x916",
+      "type": "image/png",
       "form_factor": "wide",
       "label": "Página Inicial - Editora Ortz"
     }
